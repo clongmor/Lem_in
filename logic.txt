@@ -1,0 +1,53 @@
+lem_in
+
+quickest way to get some ants across a maze of tunnels (least number of lines).
+lack of data to process -> display error
+incorrect data/empty lines stop the readin of data
+rooms never start with "L" or "#", but can start any other way.
+
+ants all start in ##start
+only one ant can occuppy a room at a time (except start and end)
+each turn, show all ants moves for that turn in one line.
+
+Display:
+
+number_of_ants
+the_rooms (coordinates)
+the_links
+
+Lx-y Lz-w Lr-o ...
+
+x, z, r represents the ants’ numbers (going from 1 to number_of_ants) and y,
+w, o represents the rooms’ names.
+any comments (begin with #) are ignored, or used to set start and end lines
+
+Of course, your algorithm must render within a reasonable time, even in a case with
+4000 rooms. 2 or 3 seconds is great, 9 seconds is mediocre, 15 seconds is too much.
+as well as read and write must be fast.
+
+example: fbouquet@thepathfinder /tmp/lem-in $ ./lem-in < subject2-1.map
+2
+1 0 2
+##start
+0 2 0
+##end
+4 2 6
+2 4 2
+3 4 4
+0-1
+0-2
+2-3
+3-4
+4-1
+requirements:
+executable == lem_in
+need a makefile
+libft
+error handling
+memory leaks
+author file
+allowed functions(unless bonus):
+malloc, free, read, write, strerror, perror, exit
+
+link lists connecting rooms
+structs storing coords, whether its a start or end room, an array(**) listing all the other rooms that room is connected to, room name and a *next. maybe add an isoccupied variable.
