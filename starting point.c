@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:49:39 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/28 15:37:54 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/08/29 08:44:22 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int		main(int argc, char **argv)
 		return (0);
 	while ((read = get_next_line(0, &line)) == 1)
 	{
-		//do i need to use one line at a time or read all in then operate
+		//store in another double char pointer eachtime and free
+		//read all in then operate
 	}
 	//read from stdinput
 	//error checking
