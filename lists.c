@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:11:22 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/30 14:55:46 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/09/05 13:56:00 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	birth_to_parent(t_room **parent, t_room *child)
 
 	cursor = *parent;
 	while (cursor->next)
-		cursor = cursor->next;
+		cursor = (cursor)->next;
 	cursor->next = child;
 }
 
-	create_room(char *room_str, int ind, int type)
+t_room	*create_room(char *room_str, int ind, int type)
 {
 	int	index;
 	int	x_val;
@@ -93,29 +93,31 @@ t_room	**populate_list(t_room **new, char **instr)
 	int		i;
 	
 	i = 1;
-	while (instr[i] != NULL)
+	while (instr[i][1] != '-')
 	{
 		if (instr[i][0] == '#')
 		{
 			if (ft_strcmp(instr[i], "##start") == 0)
 			{
 				i++;
-				new_room = create_room(instr[i], i - 1, 1);
+				new_room = create_room(instr[i], 0, 1);
 				birth_to_parent(new, new_room);
 			}
 			else if (ft_strcmp(instr[i], "##end") == 0)
 			{
 				i++;
-				new_room = create_room(instr[i], i -1, 2);
+				new_room = create_room(instr[i], 0, 2);
 				birth_to_parent(new, new_room);
 			}
 		}
 		else
 		{
-			new_room = create_room(instr[i], i - 1, 0);
+			new_room = create_room(instr[i], 0, 0);
 			birth_to_parent(new, new_room);
 		}
 		i++;
 	}		
 	return (new);	
 }
+//assuming all input in correct format.
+// **next in struct needs to change

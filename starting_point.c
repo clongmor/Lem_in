@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:49:39 by clongmor          #+#    #+#             */
-/*   Updated: 2019/08/30 13:08:54 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/09/05 13:50:23 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int		main(int argc, char **argv)
 	char *line;
 	t_room	*new;
 	
-
-	new = create_new("check", 1, 3, -5);
+	argv++;
+	new = create_new("master", -1, 0, 0); //master node of room_list
+	populate_list(&new, argv);
 	//while ((read = get_next_line(0, &line)) == 1)
 	//{
 		//store in another double char pointer eachtime and free
