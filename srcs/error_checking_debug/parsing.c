@@ -14,17 +14,22 @@
 #include "../../libft/libft.h"
 #include "debug.h"
 
+
+
 int		str_only_digits(const char *str)
 {
+    int digit_count;
+
+    digit_count = 0;
 	if (*str == '-' || *str == '+')
 		str++;
-	while (*str)
+	while (str[digit_count])
 	{
-		if (!ft_isdigit(*str))
+		if (!ft_isdigit(str[digit_count]))
 			return (0);
-		str++;
+		digit_count++;
 	}
-	return (1);
+	return (digit_count > 0);
 }
 
 int		 valid_command(char *str)
@@ -39,9 +44,11 @@ int		 valid_command(char *str)
 
 void	parse_ants(char *line, int *nb_ants) //nb ants will be replaced with a pointer to a struct
 {
-	if (ft_strchr(line, ' ') || !str_only_digits(line))
+	if (!str_only_digits(line))
 		error();
-	*nb_ants = ft_atoi(line);
+	if (!ft_strcmp(line, "-2147483649") || (*nb_ants = ft_atoi(line)) < 1)
+        error();
+    //free(line);
 }
 
 void	prase_rooms(char *line) //Arguments should be a pointer to a struct

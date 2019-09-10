@@ -14,7 +14,7 @@
 #include "../../libft/get_next_line.h"
 #include "debug.h"
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	//t_map map;
 	char *infile;
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 	int nb_ants;
 
 	nb_ants = 0;
+    infile = NULL;
 	infile = (!infile) ? ft_strnew(0) : infile;
 	while (get_next_line(0, &line) > 0 && (line[0] == '#' && line[1] != '#'))
 		infile = ft_strjoin(infile, line);
