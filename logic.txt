@@ -30,7 +30,7 @@ example: fbouquet@thepathfinder /tmp/lem-in $ ./lem-in < subject2-1.map
 1 0 2
 ##start
 0 2 0
-##end
+##end (modifies line straight after it)
 4 2 6
 2 4 2
 3 4 4
