@@ -6,7 +6,7 @@
 /*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:22:31 by clongmor          #+#    #+#             */
-/*   Updated: 2019/09/05 09:48:25 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/09/05 14:10:12 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ typedef struct s_room
 	t_location		*coords;
 	struct s_room	*next;
 }				t_room;
+
+typedef struct s_link
+{
+	int				index;
+	t_room			*to;
+	t_room			*from;
+	struct s_link	*next;
+}				t_link;
 
 t_room	*create_new(char *room_name, int index, int x_val, int y_val);
 t_room	*create_end(char *room_name, int index, int x_val, int y_val);
