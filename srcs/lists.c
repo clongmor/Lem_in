@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Rooms_lists.c                                      :+:      :+:    :+:   */
+/*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clongmor <clongmor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 12:13:30 by clongmor          #+#    #+#             */
-/*   Updated: 2019/09/16 12:18:05 by clongmor         ###   ########.fr       */
+/*   Created: 2019/08/30 12:11:22 by clongmor          #+#    #+#             */
+/*   Updated: 2019/09/05 13:56:00 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem.h"
 
-t_room	*create_new_r(char *room_name, int index, int x_val, int y_val)
+t_room	*create_new(char *room_name, int index, int x_val, int y_val)
 {
 	t_room *new;
 
@@ -35,7 +35,7 @@ t_room	*create_start(char *room_name, int index, int x_val, int y_val)
 {
 	t_room	*new;
 	
-	new = create_new_r(room_name, index, x_val, y_val);
+	new = create_new(room_name, index, x_val, y_val);
 	new->start = TRUE;
 	return (new);
 }
@@ -44,7 +44,7 @@ t_room	*create_end(char *room_name, int index, int x_val, int y_val)
 {
 	t_room	*new;
 	
-	new = create_new_r(room_name, index, x_val, y_val);
+	new = create_new(room_name, index, x_val, y_val);
 	new->end = TRUE;
 	return (new);
 }
@@ -80,12 +80,14 @@ t_room	*create_room(char *room_str, int ind, int type)
 	else if (type == 2)
 		room_name = create_end(room_namestr, ind, x_val, y_val);
 	else
-		room_name = create_new_r(room_namestr, ind, x_val, y_val);
+		room_name = create_new(room_namestr, ind, x_val, y_val);
 	free(room_namestr);
 	return (room_name);
 }
-
-t_room	**populate_room_list(t_room **new, char **instr)
+//start = 1
+//end = 2
+//neither = 0
+t_room	**populate_list(t_room **new, char **instr)
 {
 	t_room	*new_room;
 	int		i;
@@ -110,8 +112,6 @@ t_room	**populate_room_list(t_room **new, char **instr)
 		}
 		else
 		{
-			if (instr[i][1] == '-')
-				break ;
 			new_room = create_room(instr[i], 0, 0);
 			birth_to_parent(new, new_room);
 		}
@@ -119,3 +119,5 @@ t_room	**populate_room_list(t_room **new, char **instr)
 	}		
 	return (new);	
 }
+//assuming all input in correct format.
+// **next in struct needs to change
