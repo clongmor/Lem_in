@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   starting_point.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clongmor <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: clongmor <clongmor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:49:39 by clongmor          #+#    #+#             */
-/*   Updated: 2019/09/05 14:08:51 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/09/17 08:45:48 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem.h"
+#include "../includes/lem.h"
 
 int		main(int argc, char **argv)
 {
@@ -20,8 +20,10 @@ int		main(int argc, char **argv)
 	t_link	*new_links;
 	
 	argv++;
-	new_rooms = create_new("master", -1, 0, 0); //master node of room_list
-	populate_list(&new_rooms, argv);
+	new_rooms = create_new_r("master", -1, 0, 0); //master node of room_list
+	new_links = create_masterlink(); //master node of links list
+	populate_room_list(&new_rooms, argv);
+	populate_room_link(&new_links, argv, &new_rooms);
 	//while ((read = get_next_line(0, &line)) == 1)
 	//{
 		//store in another double char pointer eachtime and free
