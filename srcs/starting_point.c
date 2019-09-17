@@ -24,14 +24,22 @@ int		main(int argc, char **argv)
 	new_links = create_masterlink(); //master node of links list
 	populate_room_list(&new_rooms, argv);
 	populate_room_link(&new_links, argv, &new_rooms);
-	//while ((read = get_next_line(0, &line)) == 1)
-	//{
+
+	/*
+	while ((read = get_next_line(0, &line)) == 1)
+	{
+		//check if not comment
+		if (line[0] == '#' && line[1] != '#')
+		{
+
+		}
 		//store in another double char pointer eachtime and free
 		//read all in then operate
-	//}
+	}
+	*/
 	//read from stdinput
 	//error checking
-	// create lists with coords
+	//create lists with coords
 	//add room links
 	//call algorithim with # of ants
 	//free lists

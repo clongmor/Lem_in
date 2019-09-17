@@ -23,7 +23,6 @@ int	main(void)
 
 	nb_ants = 0;
     infile = NULL;
-	infile = (!infile) ? ft_strnew(0) : infile;
 	while (get_next_line(0, &line) > 0 && (line[0] == '#' && line[1] != '#'))
 		infile = ft_strjoin(infile, line);
 	parse_ants(line, &nb_ants);

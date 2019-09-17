@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LEM_H
+#define LEM_H
 #include "libft/libft.h"
 
 # define TRUE 1
@@ -41,6 +43,7 @@ typedef struct s_link
 	struct s_link	*next;
 }				t_link;
 
+void    read_input();
 t_room	*create_new_r(char *room_name, int index, int x_val, int y_val);
 t_room	*create_end(char *room_name, int index, int x_val, int y_val);
 t_room	*create_start(char *room_name, int index, int x_val, int y_val);
@@ -51,3 +54,4 @@ t_link	**populate_room_link(t_link **new_links, char **argv, t_room **rooms);
 t_link	*create_link(char *link_instr, t_room **rooms);
 t_link	*create_masterlink();
 void	birth_to_parent_link(t_link **parent, t_link *child);
+#endif
