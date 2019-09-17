@@ -6,11 +6,11 @@
 /*   By: clongmor <clongmor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:49:39 by clongmor          #+#    #+#             */
-/*   Updated: 2019/09/16 10:49:41 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/09/17 08:45:48 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem.h"
+#include "../includes/lem.h"
 
 int		main(int argc, char **argv)
 {
