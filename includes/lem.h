@@ -6,11 +6,11 @@
 /*   By: clongmor <clongmor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:22:31 by clongmor          #+#    #+#             */
-/*   Updated: 2019/09/16 10:51:54 by clongmor         ###   ########.fr       */
+/*   Updated: 2019/09/17 08:34:22 by clongmor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 # define TRUE 1
 # define FALSE 0
