@@ -14,24 +14,6 @@
 #include "../../libft/libft.h"
 #include "debug.h"
 
-
-
-int		str_only_digits(const char *str)
-{
-    int digit_count;
-
-    digit_count = 0;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (str[digit_count])
-	{
-		if (!ft_isdigit(str[digit_count]))
-			return (0);
-		digit_count++;
-	}
-	return (digit_count > 0);
-}
-
 int		 valid_command(char *str)
 {
 	//More commands can be added

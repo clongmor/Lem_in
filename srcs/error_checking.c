@@ -14,16 +14,16 @@
 
 typedef struct  s_env
 {
-    //unsigned int    ants : 1;
-    //unsigned int    links : 1;
-    //unsigned int    rooms : 1;
-    //unsigned int    start : 1;
-    //unsigned int    end : 1;
+    unsigned int    ants : 1;
+    unsigned int    links : 1;
+    unsigned int    rooms : 1;
+    unsigned int    start : 1;
+    unsigned int    end : 1;
     char            **rooms;
     char            *line;
 }               t_env;
 
-static  void    error_and_free(t_env *env)
+static  void    ft_error(t_env *env)
 {
     free(env->line);
     //free(env);
@@ -46,10 +46,11 @@ static  void    validate_ants(t_env env)
 {
     while ((get_next_line(0, &env->line) < 1) && env->line[0] == '#' && env->line[1] != '#')
     if (!ft_strisdigit(env->line))
-        error_and_free(&env);
+        ft_error(&env);
     if (ft_atoi(env->line) < 1)
-        error_and_free(&env);
-    free(env->line);
+        ft_error(&env);
+    env->ants = 1;
+    //free(env->line);
 }
 
 static  int     validate_rooms()
@@ -63,7 +64,7 @@ void            read_input()
     t_env env;
 
     if (validate_ants(&env) && validate_rooms(&) && validate_links(&env))
-        return ;
+        
     else
         exit_and_free(&env);
     /*
