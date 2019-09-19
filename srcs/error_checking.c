@@ -26,6 +26,14 @@ typedef struct  s_env
 }               t_env;
 
 
+
+static  void    breakpoint(int line_nb)
+{
+    ft_putstr("Breaking at line ");
+    ft_putnbr(line_nb);
+    exit(0);
+}
+
 static  int ft_strnisdigit(char *str, int len)
 {
 	while (str[len] && len)
@@ -67,11 +75,12 @@ static  int validate_coords(char *line)
     return (0);
 }
 
-static  void    ft_error(t_env **env)
+static  void    ft_error(t_env **env, int ln_nb)
 {
     free((*env)->line);
     //free(env);
-    ft_putendl_fd("Error", 2);
+    ft_putstr_fd("Error at ", 2);
+    ft_putendl_fd(ft_itoa(ln_nb), 2);
     exit(0);
 }
 
@@ -95,13 +104,13 @@ static  int get_format(char *str)
 
 static  void    validate_ants(t_env *env)
 {
-    while ((get_next_line(0, &(env->line)) < 1) && env->line[0] == '#' && env->line[1] != '#')
+    while ((get_next_line(0, &(env->line)) > 0) && (env->line[0] == '#'));
     if (!ft_strisdigit(env->line))
-        ft_error(&env);
+        ft_error(&env, 109);
     if (ft_atoi(env->line) < 1)
-        ft_error(&env);
+        ft_error(&env, 111);
     env->ants = 1;
-    //free(env->line);
+    free(env->line);
 }
 
 static  void     validate_rooms(t_env *env)
@@ -115,9 +124,8 @@ static  void     validate_rooms(t_env *env)
     while (get_next_line(0, &(env->line)) > 0)
     {
         format = get_format(env->line);
-
         if (format == -1)
-            ft_error(&env);
+            ft_error(&env, 128);
         if (format == 0)
         {
             if (ft_strequ(env->line, "##start"))
@@ -138,10 +146,13 @@ static  void     validate_rooms(t_env *env)
         else if (format == 2)
             break ;
         else if (valid_room(env->line) == 1)
-            ft_error(&env);
+        {
+            ft_error(&env, 150);
+        }
     }
     if (env->room_lst != NULL)
         env->rooms = 1;
+    breakpoint(153);
 }
 
 int            read_input()
