@@ -26,21 +26,21 @@ typedef struct  s_env
 }               t_env;
 
 
-
+/*
 static  void    breakpoint(int line_nb)
 {
     ft_putstr("Breaking at line ");
     ft_putnbr(line_nb);
     exit(0);
 }
+*/
 
 static  int ft_strnisdigit(char *str, int len)
 {
-	while (str[len] && len)
+	while (str[len] && --len)
 	{
 		if (str[len] < 48 || str[len] > 57)
 			return (0);
-		len--;
 	}
 	return (1);
 }
@@ -117,6 +117,7 @@ static  void     validate_rooms(t_env *env)
 {
     int cmd;
     int format;
+    int i = 0;
 
     //Unique name
     //Format [room name][single space][x_coord][single space][y_coord]
@@ -124,8 +125,12 @@ static  void     validate_rooms(t_env *env)
     while (get_next_line(0, &(env->line)) > 0)
     {
         format = get_format(env->line);
+        ++i;
         if (format == -1)
-            ft_error(&env, 128);
+        {
+            ft_putendl(env->line);
+            ft_error(&env, i);
+        }
         if (format == 0)
         {
             if (ft_strequ(env->line, "##start"))
@@ -145,14 +150,12 @@ static  void     validate_rooms(t_env *env)
         }
         else if (format == 2)
             break ;
-        else if (valid_room(env->line) == 1)
+        else if (valid_room(env->line) != 1)
         {
             ft_error(&env, 150);
         }
     }
-    if (env->room_lst != NULL)
-        env->rooms = 1;
-    breakpoint(153);
+    env->rooms = 1;
 }
 
 int            read_input()
@@ -162,8 +165,10 @@ int            read_input()
     validate_ants(&env);
     validate_rooms(&env);
 
-    if (env.rooms && env.ants && env.start && env.end)
-        return (1);
+    if (env.ants && env.rooms && env.end && env.start)
+        ft_putendl("valid file");
+    else
+        ft_putendl("invalid file");
     return (0);
     /*
     while (get_next_line(0, &line) > 0)
@@ -193,9 +198,5 @@ int            read_input()
 
 int main()
 {
-    if (read_input() == 1)
-        ft_putendl("Valid file");
-    else   
-        ft_putendl("Invalid file");
-    return (0);
+    read_input();
 }
