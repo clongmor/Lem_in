@@ -63,7 +63,7 @@ static  void    validate_ants(t_env *env)
     if (ft_atoi(env->line) < 1)
         ft_error(&env, 111);
     env->ants = 1;
-    free(env->line);
+    ft_strdel(&env->line);
 }
 
 static  void     validate_rooms(t_env *env)
@@ -97,28 +97,39 @@ static  void     validate_rooms(t_env *env)
         }
         else if (format == 2)
             break ;
-        else if (valid_room(env->line) != 1)
+        else if (is_new_room(env->line) != 1)
         {
             ft_error(&env, 150);
         }
-        free(env->line);
+        ft_strdel(&env->line);
     }
     env->rooms = 1;
 }
 
-/*
+
 static  void    validate_links(t_env *env)
 {
     int format;
+    int links_count;
+    int tmp;
 
+    links_count = 0;
     while (get_next_line(0, &(env->line)) > 0)
     {
         format = get_format(env->line);
-        if (format == -1 || format == 1)
+        if (format == 1 || format == -1 || (format == 0 && set_cmd(env->line)))
             ft_error(&env, 115);
+        if (format == 2)
+        {
+            tmp = ft_strchr(env->line, '-') - env->line;
+            if (is_new_room(env->line) && is_new_room(env->line + tmp + 1))
+                links_count++;
+            else
+                ft_error(&env, 126);
+        }
     }
+    env->links = (links_count > 0) ? 1 : 0;
 }
-*/
 
 int            read_input()
 {
@@ -126,8 +137,9 @@ int            read_input()
 
     validate_ants(&env);
     validate_rooms(&env);
+    validate_links(&env);
 
-    if (env.ants && env.rooms && env.end && env.start)
+    if (env.ants && env.rooms && env.end && env.start && env.links)
         ft_putendl("valid file");
     else
         ft_putendl("invalid file");
@@ -161,5 +173,4 @@ int            read_input()
 int main()
 {
     read_input();
-    while(1);
 }

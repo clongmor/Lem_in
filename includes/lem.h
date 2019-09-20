@@ -57,7 +57,7 @@ typedef struct s_link
 int     set_cmd(char *line);
 int		ft_strisdigit(char *str);
 int		ft_strnisdigit(char *str, int len);
-int		valid_room(char *str);
+int		is_new_room(char *str);
 void    ft_error(t_env **env, int ln_nb);
 int		read_input();
 t_room	*create_new_r(char *room_name, int index, int x_val, int y_val);

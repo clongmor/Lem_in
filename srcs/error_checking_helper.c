@@ -2,14 +2,14 @@
 
 void    ft_error(t_env **env, int ln_nb)
 {
-    free((*env)->line);
+    ft_strdel(&(*env)->line);
     //free(env);
     ft_putstr_fd("Error at ", 2);
     ft_putendl_fd(ft_itoa(ln_nb), 2);
     exit(0);
 }
 
-int valid_room(char *str)
+int is_new_room(char *str)
 {
     *str = '\0';
     return (1);
