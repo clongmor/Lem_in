@@ -54,6 +54,7 @@ typedef struct s_link
 	struct s_link	*next;
 }				t_link;
 
+int     set_cmd(char *line);
 int		ft_strisdigit(char *str);
 int		ft_strnisdigit(char *str, int len);
 int		valid_room(char *str);

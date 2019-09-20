@@ -56,7 +56,8 @@ static  int get_format(char *str)
 
 static  void    validate_ants(t_env *env)
 {
-    while ((get_next_line(0, &(env->line)) > 0) && (env->line[0] == '#'));
+    while ((get_next_line(0, &(env->line)) > 0) && (env->line[0] == '#'))
+        free(env->line);
     if (!ft_strisdigit(env->line))
         ft_error(&env, 109);
     if (ft_atoi(env->line) < 1)
@@ -69,7 +70,7 @@ static  void     validate_rooms(t_env *env)
 {
     int cmd;
     int format;
-    int i = 0;
+
 
     //Unique name
     //Format [room name][single space][x_coord][single space][y_coord]
@@ -77,19 +78,13 @@ static  void     validate_rooms(t_env *env)
     while (get_next_line(0, &(env->line)) > 0)
     {
         format = get_format(env->line);
-        ++i;
         if (format == -1)
         {
             ft_putendl(env->line);
-            ft_error(&env, i);
+            ft_error(&env, 84);
         }
         if (format == 0)
-        {
-            if (ft_strequ(env->line, "##start"))
-                cmd = 1;
-            if (ft_strequ(env->line, "##end"))
-                cmd = 2;
-        }
+            cmd = set_cmd(env->line);
         else if (cmd == 1 && format == 1)
         {
             env->start = 1;
@@ -106,9 +101,24 @@ static  void     validate_rooms(t_env *env)
         {
             ft_error(&env, 150);
         }
+        free(env->line);
     }
     env->rooms = 1;
 }
+
+/*
+static  void    validate_links(t_env *env)
+{
+    int format;
+
+    while (get_next_line(0, &(env->line)) > 0)
+    {
+        format = get_format(env->line);
+        if (format == -1 || format == 1)
+            ft_error(&env, 115);
+    }
+}
+*/
 
 int            read_input()
 {
@@ -151,4 +161,5 @@ int            read_input()
 int main()
 {
     read_input();
+    while(1);
 }

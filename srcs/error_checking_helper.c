@@ -35,3 +35,12 @@ int ft_strisdigit(char *str)
 	}
 	return (1);
 }
+
+int     set_cmd(char *line)
+{
+    if (ft_strequ(line, "##start"))
+        return (1);
+    if (ft_strequ(line, "##end"))
+        return (2);
+    return (0);
+}
