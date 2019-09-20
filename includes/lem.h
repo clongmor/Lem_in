@@ -12,7 +12,7 @@
 
 #ifndef LEM_H
 #define LEM_H
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -24,6 +24,17 @@ typedef	struct	s_location
 	int	x;
 	int	y;
 }				t_location;
+
+typedef struct  s_env
+{
+    unsigned int    ants : 1;
+    unsigned int    links : 1;
+    unsigned int    rooms : 1;
+    unsigned int    start : 1;
+    unsigned int    end : 1;
+    char            *room_lst;
+    char            *line;
+}               t_env;
 
 typedef struct s_room
 {
@@ -43,7 +54,11 @@ typedef struct s_link
 	struct s_link	*next;
 }				t_link;
 
-void    read_input();
+int		ft_strisdigit(char *str);
+int		ft_strnisdigit(char *str, int len);
+int		valid_room(char *str);
+void    ft_error(t_env **env, int ln_nb);
+int		read_input();
 t_room	*create_new_r(char *room_name, int index, int x_val, int y_val);
 t_room	*create_end(char *room_name, int index, int x_val, int y_val);
 t_room	*create_start(char *room_name, int index, int x_val, int y_val);

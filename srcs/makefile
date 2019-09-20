@@ -11,5 +11,8 @@
 # **************************************************************************** #
 
 all:
-	gcc error_checking.c -Wall -Werror -Wextra ../libft/libft.a
+	gcc error_checking.c error_checking_helper.c -Wall -Werror -Wextra ../libft/libft.a
+
+clean:
+	rm a.out
 

@@ -13,18 +13,7 @@
 //#include #include "../includes/lem.h"
 #include "../libft/libft.h"
 #include "../libft/get_next_line.h"
-
-typedef struct  s_env
-{
-    unsigned int    ants : 1;
-    unsigned int    links : 1;
-    unsigned int    rooms : 1;
-    unsigned int    start : 1;
-    unsigned int    end : 1;
-    char            *room_lst;
-    char            *line;
-}               t_env;
-
+#include "../includes/lem.h"
 
 /*
 static  void    breakpoint(int line_nb)
@@ -34,34 +23,6 @@ static  void    breakpoint(int line_nb)
     exit(0);
 }
 */
-
-static  int ft_strnisdigit(char *str, int len)
-{
-	while (str[len] && --len)
-	{
-		if (str[len] < 48 || str[len] > 57)
-			return (0);
-	}
-	return (1);
-}
-
-static  int valid_room(char *str)
-{
-    *str = '\0';
-    return (1);
-}
-
-
-static  int ft_strisdigit(char *str)
-{
-	while (*str)
-	{
-		if (*str < 48 || *str > 57)
-			return (0);
-		str++;
-	}
-	return (1);
-}
 
 static  int validate_coords(char *line)
 {
@@ -73,15 +34,6 @@ static  int validate_coords(char *line)
     if (ft_strnisdigit(line, space_indx) && ft_strisdigit(line + space_indx + 1))
         return (1);
     return (0);
-}
-
-static  void    ft_error(t_env **env, int ln_nb)
-{
-    free((*env)->line);
-    //free(env);
-    ft_putstr_fd("Error at ", 2);
-    ft_putendl_fd(ft_itoa(ln_nb), 2);
-    exit(0);
 }
 
 static  int get_format(char *str)
