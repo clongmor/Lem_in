@@ -9,10 +9,23 @@ void    ft_error(t_env **env, int ln_nb)
     exit(0);
 }
 
-int is_new_room(char *str)
+int room_exists(char *room, t_env *env)
 {
-    *str = '\0';
-    return (1);
+	int i;
+
+	i = -1;
+	ft_putendl("line 17");
+	while (++i < env->nbr_rooms)
+	{
+		if (ft_strequ(room, env->all_rooms[i]))
+			return (1);
+	}
+	ft_putendl("line 23");
+	env->all_rooms = realloc(env->all_rooms, env->nbr_rooms * sizeof(*(env->all_rooms)));
+	ft_putendl("line 25");
+	ft_strcpy(env->all_rooms[env->nbr_rooms - 1], room);
+	ft_putendl("line 27");
+	return (0);
 }
 
 int ft_strnisdigit(char *str, int len)

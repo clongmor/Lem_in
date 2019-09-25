@@ -10,19 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include #include "../includes/lem.h"
 #include "../libft/libft.h"
 #include "../libft/get_next_line.h"
 #include "../includes/lem.h"
-
-/*
-static  void    breakpoint(int line_nb)
-{
-    ft_putstr("Breaking at line ");
-    ft_putnbr(line_nb);
-    exit(0);
-}
-*/
 
 static  int validate_coords(char *line)
 {
@@ -71,9 +61,6 @@ static  void     validate_rooms(t_env *env)
     int cmd;
     int format;
 
-
-    //Unique name
-    //Format [room name][single space][x_coord][single space][y_coord]
     cmd = 0;
     while (get_next_line(0, &(env->line)) > 0)
     {
@@ -97,7 +84,7 @@ static  void     validate_rooms(t_env *env)
         }
         else if (format == 2)
             break ;
-        else if (is_new_room(env->line) != 1)
+        else if (room_exists(env->line, env))
         {
             ft_error(&env, 150);
         }
@@ -122,7 +109,7 @@ static  void    validate_links(t_env *env)
         if (format == 2)
         {
             tmp = ft_strchr(env->line, '-') - env->line;
-            if (is_new_room(env->line) && is_new_room(env->line + tmp + 1))
+            if (!room_exists(env->line, env) && !room_exists(env->line + tmp + 1, env))
                 links_count++;
             else
                 ft_error(&env, 126);
@@ -135,40 +122,25 @@ int            read_input()
 {
     t_env env;
 
+	env.nbr_rooms = 0;
+	//env.all_rooms[0] = NULL;
+
     validate_ants(&env);
     validate_rooms(&env);
     validate_links(&env);
 
-    if (env.ants && env.rooms && env.end && env.start && env.links)
-        ft_putendl("valid file");
-    else
-        ft_putendl("invalid file");
+    if (env.ants)
+        ft_putendl("Valid ants");
+    if (env.rooms)
+        ft_putendl("Valid rooms");
+    if (env.links)
+        ft_putendl("Valid links");
+    if (env.start)
+        ft_putendl("Start set");
+    if (env.end)
+        ft_putendl("End set");
     return (0);
-    /*
-    while (get_next_line(0, &line) > 0)
-	{
-		//check if not comment
-		if (!(line[0] == '#' && line[1] != '#'))
-		{
-            if (elems_set.ants == 0)
-            {
-                if (!valid_number(line))
-                    return (0);
-                elems_set.ants = 1;
-            }
-            if (elems_set.rooms == 0)
-            {
-                //Check format
-
-            }
-		}
-		//store in another double char pointer eachtime and free
-		//read all in then operate
-	}
-    return (elems_set.ants && elems_set.rooms && elems_set.links);
-    */
 }
-
 
 int main()
 {
