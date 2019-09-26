@@ -1,5 +1,14 @@
 #include "../includes/lem.h"
 
+/*
+char **ft_realloc(char **src, size_t size)
+{
+	if (!src)
+		return (NULL);
+	
+}
+*/
+
 void    ft_error(t_env **env, int ln_nb)
 {
     ft_strdel(&(*env)->line);
@@ -14,17 +23,29 @@ int room_exists(char *room, t_env *env)
 	int i;
 
 	i = -1;
-	ft_putendl("line 17");
+	/*
+	ft_putnbr(env->nbr_rooms);
+	ft_putendl("");
 	while (++i < env->nbr_rooms)
 	{
+		ft_putstr("is \"");
+		ft_putstr(room);
+		ft_putstr("\" = \"");
+		ft_putstr(env->all_rooms[i]);
+		ft_putstr("\"\n");
 		if (ft_strequ(room, env->all_rooms[i]))
 			return (1);
 	}
-	ft_putendl("line 23");
+	*/
 	env->all_rooms = realloc(env->all_rooms, env->nbr_rooms * sizeof(*(env->all_rooms)));
-	ft_putendl("line 25");
-	ft_strcpy(env->all_rooms[env->nbr_rooms - 1], room);
-	ft_putendl("line 27");
+	env->nbr_rooms++;
+	if (!(env->all_rooms))
+		ft_error(&env, 33);
+	//ft_putendl("line 25");
+	env->all_rooms[env->nbr_rooms - 1] = ft_strdup(room);
+	//ft_putendl(env->all_rooms[env->nbr_rooms - 1]);
+	//ft_strcpy(env->all_rooms[env->nbr_rooms - 1], room);
+	//ft_putendl("line 27");
 	return (0);
 }
 

@@ -123,11 +123,21 @@ int            read_input()
     t_env env;
 
 	env.nbr_rooms = 0;
-	//env.all_rooms[0] = NULL;
 
     validate_ants(&env);
     validate_rooms(&env);
     validate_links(&env);
+
+    env.all_rooms[env.nbr_rooms] = NULL;
+
+    /*
+    while (*(env.all_rooms))
+    {
+        ft_putendl(*(env.all_rooms));
+        env.all_rooms++;
+    }
+    */
+    
 
     if (env.ants)
         ft_putendl("Valid ants");
