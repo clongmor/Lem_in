@@ -42,8 +42,6 @@ static  int get_format(char *str)
     return (-1);
 }
 
-
-
 static  void    validate_ants(t_env *env)
 {
     while ((get_next_line(0, &(env->line)) > 0) && (env->line[0] == '#'))
@@ -84,7 +82,7 @@ static  void     validate_rooms(t_env *env)
         }
         else if (format == 2)
             break ;
-        else if (room_exists(env->line, env))
+        else if (new_room(env->line, env, 1))
         {
             ft_error(&env, 150);
         }
@@ -109,7 +107,7 @@ static  void    validate_links(t_env *env)
         if (format == 2)
         {
             tmp = ft_strchr(env->line, '-') - env->line;
-            if (!room_exists(env->line, env) && !room_exists(env->line + tmp + 1, env))
+            if (!new_room(env->line, env, 2) && !new_room(env->line + tmp + 1, env, 2))
                 links_count++;
             else
                 ft_error(&env, 126);
@@ -124,20 +122,22 @@ int            read_input()
 
 	env.nbr_rooms = 0;
 
+    ft_putendl("Checking ants");
     validate_ants(&env);
+    ft_putendl("Checking rooms");
     validate_rooms(&env);
+    ft_putendl("Checking links");
     validate_links(&env);
 
     env.all_rooms[env.nbr_rooms] = NULL;
 
-    /*
+/*
     while (*(env.all_rooms))
     {
         ft_putendl(*(env.all_rooms));
         env.all_rooms++;
     }
-    */
-    
+*/
 
     if (env.ants)
         ft_putendl("Valid ants");
@@ -149,6 +149,7 @@ int            read_input()
         ft_putendl("Start set");
     if (env.end)
         ft_putendl("End set");
+    //while(1);
     return (0);
 }
 

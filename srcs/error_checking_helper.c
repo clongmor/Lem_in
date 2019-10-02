@@ -18,31 +18,52 @@ void    ft_error(t_env **env, int ln_nb)
     exit(0);
 }
 
-int room_exists(char *room, t_env *env)
+int new_room(char *room, t_env *env, int type)
 {
 	int i;
+	int len;
+
+	//ft_putendl(room);
+
+	char *tmp;
 
 	i = -1;
-	/*
-	ft_putnbr(env->nbr_rooms);
-	ft_putendl("");
+	len = 0;
+	if (type == 1)
+		len = ft_strchr(room, ' ') - room;
+	else if (type == 2)
+		len = ft_strchr(room, '-') - room;
+	else
+		ft_error(&env, 32);
+	
 	while (++i < env->nbr_rooms)
 	{
-		ft_putstr("is \"");
+		/*
+		ft_putstr("line \"");
 		ft_putstr(room);
-		ft_putstr("\" = \"");
+		ft_putstr("\" has room \"");
 		ft_putstr(env->all_rooms[i]);
 		ft_putstr("\"\n");
 		if (ft_strequ(room, env->all_rooms[i]))
 			return (1);
+		*/
 	}
-	*/
-	env->all_rooms = realloc(env->all_rooms, env->nbr_rooms * sizeof(*(env->all_rooms)));
+	env->all_rooms = realloc(env->all_rooms, (env->nbr_rooms + 1) * sizeof(*env->all_rooms));
 	env->nbr_rooms++;
 	if (!(env->all_rooms))
 		ft_error(&env, 33);
+	tmp = ft_strndup(room, len);
+	/*
+	ft_putstr("Room for :");
+	ft_putstr(room);
+	ft_putstr(" is : ");
+	ft_putendl(tmp);
+	*/
+	//ft_putendl(tmp);
 	//ft_putendl("line 25");
-	env->all_rooms[env->nbr_rooms - 1] = ft_strdup(room);
+	env->all_rooms[env->nbr_rooms - 1] = ft_strndup(room, len);
+	env->all_rooms[env->nbr_rooms] = NULL;
+	//ft_putendl(env->all_rooms[env->nbr_rooms - 1]);
 	//ft_putendl(env->all_rooms[env->nbr_rooms - 1]);
 	//ft_strcpy(env->all_rooms[env->nbr_rooms - 1], room);
 	//ft_putendl("line 27");
