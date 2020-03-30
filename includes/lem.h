@@ -10,44 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LEMIN_H
+# define LEMIN_H
 #include "../libft/libft.h"
+#include "../libft/get_next_line.h"
+#include <stdio.h>
 
 # define TRUE 1
 # define FALSE 0
 
-typedef int		t_bool;
+typedef int bool;
+typedef struct  s_link  t_link;
+typedef struct  s_room  t_room;
 
-typedef	struct	s_location 
+struct  s_link {
+    char    *room;
+    t_link  *next;
+};
+
+struct  s_room
 {
-	int	x;
-	int	y;
-}				t_location;
+    int             x;
+    int             y;
+    int             index;
+    char            *name;
+    t_link          *links;
+    t_room          *next;
+};
 
-typedef struct s_room
-{
-	int				index;
-	t_bool			start;
-	t_bool			end;
-	t_bool			occupied;
-	char			*room_name;
-	t_location		*coords;
-	struct s_room	*next;
-}				t_room;
+typedef struct  s_env {
+    int     nb_ants;
+    t_room  *head;
+    char    *start;
+    char    *end;
+}               t_env;
 
-typedef struct s_link
-{
-	t_room			*to;
-	t_room			*from;
-	struct s_link	*next;
-}				t_link;
+t_env   *create_env(void);
+t_room  *create_room(char *name, int x, int y);
+t_link  *create_link(char *dst);
+t_room  *get_room(t_env *env, char *dst);
+void    add_link(t_env *env, char *src, char *dst);
+void    push_link_end(t_room *room, t_link *new_link);
+void    add_room(t_env *env, t_room *room);
+void    print_env(t_env *env);
+void    delete_env(t_env *env);
+void    parse_ants(t_env *env);
+int     str_only_digits(char *str);
+void    read_map_rooms(t_env *env);
+void    parse_room(char *room, int type, t_env *env);
 
-t_room	*create_new_r(char *room_name, int index, int x_val, int y_val);
-t_room	*create_end(char *room_name, int index, int x_val, int y_val);
-t_room	*create_start(char *room_name, int index, int x_val, int y_val);
-void	birth_to_parent(t_room **parent, t_room *child);
-t_room	*create_room(char *room_str, int ind, int type);
-t_room	**populate_room_list(t_room **new, char **instr);
-t_link	**populate_room_link(t_link **new_links, char **argv, t_room **rooms);
-t_link	*create_link(char *link_instr, t_room **rooms);
-t_link	*create_masterlink();
-void	birth_to_parent_link(t_link **parent, t_link *child);
+
+#endif

@@ -12,18 +12,14 @@
 
 #include "../includes/lem.h"
 
-int		main(int argc, char **argv)
+int		main()
 {
-	int	read;
-	char *line;
-	t_room	*new_rooms;
-	t_link	*new_links;
-	
-	argv++;
-	new_rooms = create_new_r("master", -1, 0, 0); //master node of room_list
-	new_links = create_masterlink(); //master node of links list
-	populate_room_list(&new_rooms, argv);
-	populate_room_link(&new_links, argv, &new_rooms);
+    t_env *anthill;
+    
+    anthill = create_env();
+    parse_ants(anthill);
+    read_map_rooms(anthill);
+    print_env(anthill);
 	//while ((read = get_next_line(0, &line)) == 1)
 	//{
 		//store in another double char pointer eachtime and free
