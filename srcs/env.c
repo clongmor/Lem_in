@@ -20,6 +20,7 @@ t_env   *create_env(void) {
         return NULL;
     }
     new_env->head = NULL;
+    new_env->size = 0;
     return new_env;
 }
 

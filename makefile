@@ -3,7 +3,10 @@ SRCS =	./srcs/env.c \
 		./srcs/rooms.c \
 		./srcs/main.c \
 		./srcs/parser.c \
-		./srcs/helper.c
+		./srcs/helper.c \
+		./srcs/queue.c \
+		./srcs/pathing.c \
+
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 NAME = run

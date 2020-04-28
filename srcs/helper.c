@@ -23,3 +23,11 @@ int arr_size(char **arr) {
     }
     return size;
 }
+
+void print_links(t_node *head) {
+    while (head != NULL) {
+        printf("L: [%s] ", head->room);
+        head = head->next;
+    }
+    printf("\n");
+}

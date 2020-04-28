@@ -12,7 +12,7 @@
 
 #include "../includes/lem.h"
 
-t_room  *create_room(char *name, int x, int y) {
+t_room  *create_room(char *name, int x, int y, int index) {
     t_room *new_room;
 
     new_room = (t_room *)malloc(sizeof(t_room));
@@ -21,6 +21,7 @@ t_room  *create_room(char *name, int x, int y) {
     }
     new_room->x = x;
     new_room->y = y;
+    new_room->index = index;
     new_room->name = ft_strdup(name);
     new_room->next = NULL;
     new_room->links = NULL;

@@ -45,7 +45,8 @@ void    parse_room(char *room, int type, t_env *env) {
             name = ft_strdup(room_arr[0]);
             x = ft_atoi(room_arr[1]);
             y = ft_atoi(room_arr[2]);
-            new_room = create_room(name, x, y);
+            new_room = create_room(name, x, y, env->size);
+            env->size++;
             add_room(env, new_room);
             if (type == 1)
                 env->start = name;

@@ -31,6 +31,7 @@ struct  s_node {
 
 struct  s_room
 {
+    int             index;
     int             x;
     int             y;
     char            *name;
@@ -40,6 +41,7 @@ struct  s_room
 
 typedef struct  s_env {
     int     nb_ants;
+    int     size;
     t_room  *head;
     char    *start;
     char    *end;
@@ -47,7 +49,7 @@ typedef struct  s_env {
 }               t_env;
 
 t_env   *create_env(void);
-t_room  *create_room(char *name, int x, int y);
+t_room  *create_room(char *name, int x, int y, int index);
 t_node  *create_node(char *dst);
 t_room  *find_room(t_env *env, char *dst);
 void    add_link(t_env *env, char *src, char *dst);
@@ -62,5 +64,13 @@ void    parse_room(char *room, int type, t_env *env);
 int     arr_size(char **arr);
 void    read_map_links(t_env *env);
 void    parse_link(char *room, t_env *env);
+t_node  *dequeue(t_node **queue);
+void    enqueue(t_node **queue, t_node *node);
+char    **get_path(t_env *env, char *start);
+void    bfs(t_env *env, char *start, char *dst);
+void    print_links(t_node *head);
+int     get_index(t_env *env,char *room_name);
+t_node *reconstruct_path(t_env *env, char *start, char *end, char **prev);
+void    reverse(t_node **queue);
 
 #endif

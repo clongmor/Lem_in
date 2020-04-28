@@ -20,8 +20,9 @@ int		main()
     parse_ants(anthill);
     read_map_rooms(anthill);
     read_map_links(anthill);
+    bfs(anthill, anthill->start, anthill->end);
     print_env(anthill);
-
+    t_room *head = anthill->head;
 	//while ((read = get_next_line(0, &line)) == 1)
 	//{
 		//store in another double char pointer eachtime and free
