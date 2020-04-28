@@ -12,9 +12,9 @@
 
 #include "../includes/lem.h"
 
-t_link  *create_link(char *to) {
-    t_link *new_link;
-    new_link = (t_link *)malloc(sizeof(t_link));
+t_node  *create_node(char *to) {
+    t_node *new_link;
+    new_link = (t_node *)malloc(sizeof(t_node));
     if (!new_link) {
         return NULL;
     }
@@ -23,8 +23,8 @@ t_link  *create_link(char *to) {
     return new_link;
 }
 
-void    push_link_end(t_room *room, t_link *new_link) {
-    t_link *tmp;
+void    push_link_end(t_room *room, t_node *new_link) {
+    t_node *tmp;
 
     tmp = room->links;
     if (!tmp) {
@@ -41,15 +41,15 @@ void    push_link_end(t_room *room, t_link *new_link) {
 void    add_link(t_env *env, char *src, char *dst) {
     t_room *src_room;
     t_room *dst_room;
-    t_link *tmp;
+    t_node *tmp;
 
-    src_room = get_room(env, src);
-    dst_room = get_room(env, dst);
+    src_room = find_room(env, src);
+    dst_room = find_room(env, dst);
     if ((src_room == NULL) || (dst_room == NULL)) {
         printf("Could not find rooms to link\n");
     }
     else {
-        push_link_end(src_room, create_link(dst));
-        push_link_end(dst_room, create_link(src));
+        push_link_end(src_room, create_node(dst));
+        push_link_end(dst_room, create_node(src));
     }
 }

@@ -19,7 +19,9 @@ int		main()
     anthill = create_env();
     parse_ants(anthill);
     read_map_rooms(anthill);
+    read_map_links(anthill);
     print_env(anthill);
+
 	//while ((read = get_next_line(0, &line)) == 1)
 	//{
 		//store in another double char pointer eachtime and free

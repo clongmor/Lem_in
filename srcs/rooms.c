@@ -44,7 +44,7 @@ void    add_room(t_env *env, t_room *room) {
     }
 }
 
-t_room  *get_room(t_env *env, char *dst) {
+t_room  *find_room(t_env *env, char *dst) {
     t_room *tmp;
 
     tmp = env->head;

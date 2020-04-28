@@ -1,6 +1,6 @@
 #include "../includes/lem.h"
 
-int str_only_digits(char *str) {
+int only_digits(char *str) {
     int digit_count;
 
     digit_count = 0;
@@ -12,4 +12,14 @@ int str_only_digits(char *str) {
         str++;
     }
     return ((digit_count > 0));
+}
+
+int arr_size(char **arr) {
+    int size;
+
+    size = 0;
+    while (arr[size]) {
+        size++;
+    }
+    return size;
 }

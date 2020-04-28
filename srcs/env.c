@@ -30,7 +30,7 @@ void    print_env(t_env *env) {
     printf("nb atns: %i\n", env->nb_ants);
     while (tmp) {
         printf("room: %s | links : ", tmp->name);
-        t_link *tmp_link = tmp->links;
+        t_node *tmp_link = tmp->links;
         while (tmp_link) {
             printf("%s ", tmp_link->room);
             tmp_link = tmp_link->next;
@@ -39,6 +39,7 @@ void    print_env(t_env *env) {
         // Print links
         tmp = tmp->next;
     }
+    printf("start: %s\nend: %s", env->start, env->end);
 }
 
 void    delete_env(t_env *env) {
@@ -47,7 +48,7 @@ void    delete_env(t_env *env) {
         t_room *tmp_room;
 
         while (env->head != NULL) {
-            t_link *tmp_link;
+            t_node *tmp_link;
             
             tmp_room = env->head;
             env->head = env->head->next;
