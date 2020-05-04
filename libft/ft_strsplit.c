@@ -88,13 +88,9 @@ char			**ft_strsplit(const char *s, char c)
 {
 	int		count;
 	char	**str_array;
-	int		i;
-	int		j;
 
 	if (s == NULL)
 		return (NULL);
-	i = 0;
-	j = 0;
 	count = ft_wordsplit(s, c);
 	str_array = (char **)malloc((count + 1) * sizeof(s));
 	if (str_array == NULL)

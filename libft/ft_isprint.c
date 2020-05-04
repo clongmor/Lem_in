@@ -23,7 +23,7 @@ int		ft_isprint(int c)
 	unsigned char	character;
 
 	character = (unsigned char)c;
-	if (c < 32 || c > 126)
+	if (character < 32 || character > 126)
 		return (0);
 	return (1);
 }

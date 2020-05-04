@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "NB: this script must be run from inside the lem_in folder or else it will fail"
+echo "now attempting to execute"
+echo ""
+
+echo "remaking libft"
+cd libft
+make re > /dev/null 2>&1
+make clean > /dev/null 2>&1
+
+cd ..
+echo "making lem_in executable"
+make re > /dev/null 2>&1
+echo ""
+
+echo "starting test runs..."

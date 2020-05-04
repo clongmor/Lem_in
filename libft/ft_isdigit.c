@@ -23,7 +23,7 @@ int		ft_isdigit(int c)
 	unsigned char character;
 
 	character = (unsigned char)c;
-	if (c >= 48 && c <= 57)
+	if (character >= 48 && character <= 57)
 		return (1);
 	return (0);
 }

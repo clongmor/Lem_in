@@ -24,7 +24,7 @@ int		ft_isupper(int c)
 	unsigned char	character;
 
 	character = (unsigned char)c;
-	if (c >= 'A' && c <= 'Z')
+	if (character >= 'A' && character <= 'Z')
 		return (1);
 	return (0);
 }

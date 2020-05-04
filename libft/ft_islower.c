@@ -25,7 +25,7 @@ int		ft_islower(int c)
 	unsigned char	character;
 
 	character = (unsigned char)c;
-	if (c >= 97 && c <= 122)
+	if (character >= 97 && character <= 122)
 		return (1);
 	return (0);
 }
