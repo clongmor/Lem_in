@@ -9,7 +9,7 @@ SRCS =	./srcs/env.c \
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
-NAME = run
+NAME = lem_in
 LINKER = -L./libft -lft
 
 all:

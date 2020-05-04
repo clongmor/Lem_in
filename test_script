@@ -6,12 +6,20 @@ echo ""
 
 echo "remaking libft"
 cd libft
-make re > /dev/null 2>&1
-make clean > /dev/null 2>&1
+#make re > /dev/null 2>&1
+#make clean > /dev/null 2>&1
 
 cd ..
 echo "making lem_in executable"
-make re > /dev/null 2>&1
+#make re > /dev/null 2>&1
 echo ""
 
 echo "starting test runs..."
+touch test_output.txt > /dev/null 2>&1
+./lem_in < maps/test_empty.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "empty input passed"
+else
+    echo "empty input failed"
+fi
