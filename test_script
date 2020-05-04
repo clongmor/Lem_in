@@ -23,3 +23,101 @@ then
 else
     echo "empty input failed"
 fi
+
+./lem_in < maps/test_no_start_#.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no start # passed"
+else
+    echo "no start # failed"
+fi
+
+./lem_in < maps/test_half_link.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "half_link passed"
+else
+    echo "half_link failed"
+fi
+
+./lem_in < maps/test_half_room_line.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "half_room_line passed"
+else
+    echo "half_room_line failed"
+fi
+
+./lem_in < maps/test_incorrect_link.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "incorrect_link passed"
+else
+    echo "incorrect_link failed"
+fi
+
+./lem_in < maps/test_no_ant.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_ant passed"
+else
+    echo "no_ant failed"
+fi
+
+./lem_in < maps/test_no_end_#.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_end_# passed"
+else
+    echo "no_end_# failed"
+fi
+
+./lem_in < maps/test_no_end_link.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_end_link passed"
+else
+    echo "no_end_link failed"
+fi
+
+./lem_in < maps/test_no_end.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_end passed"
+else
+    echo "no_end failed"
+fi
+
+./lem_in < maps/test_no_link.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_link passed"
+else
+    echo "no_link failed"
+fi
+
+./lem_in < maps/test_no_room.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_room passed"
+else
+    echo "no_room failed"
+fi
+
+./lem_in < maps/test_no_start_link.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_start_link passed"
+else
+    echo "no_start_link failed"
+fi
+
+./lem_in < maps/test_no_start.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "no_start passed"
+else
+    echo "no_start failed"
+fi
+
+rm test_output.txt
