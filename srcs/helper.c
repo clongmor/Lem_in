@@ -31,3 +31,12 @@ void print_links(t_node *head) {
     }
     printf("\n");
 }
+
+int list_contains(t_node *head, char *dst) {
+    while (head) {
+        if (head->room == dst)
+            return (1);
+        head = head->next;
+    }
+    return (0);
+}
