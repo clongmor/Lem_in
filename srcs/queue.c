@@ -87,15 +87,16 @@ t_node *dequeue(t_queue **queue) {
     return NULL;
 }
 
-int     contains_room(t_node *path, char *room) {
+int     room_count(t_node *path, char *room) {
     t_node *curr = path;
+    int count = 0;
 
     if (curr && room) {
         while (curr) {
             if (ft_strequ(curr->room, room))
-                return (1);
+                count++;
             curr = curr->next;
         }
     }
-    return (0);   
+    return (count);   
 }

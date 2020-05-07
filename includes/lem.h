@@ -73,11 +73,11 @@ void    parse_link(char *room, t_env *env);
 t_node  *dequeue(t_queue **queue);
 void    enqueue(t_queue **queue, t_node *new_path);
 void    print_links(t_node *head);
-t_node  *find_path(t_env *env, t_node *used_paths);
+t_queue *get_paths(t_env *env);
 void    print_queue(t_queue **queue);
 t_queue *create_queue(t_node *path);
 t_node  *appended_path(t_node **path, char *to_append);
 char    *last_in_path(t_node *path);
-int     contains_room(t_node *path, char *room);
+int     room_count(t_node *path, char *room);
 
 #endif

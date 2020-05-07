@@ -23,13 +23,9 @@ int		main()
     read_map_links(anthill);
     print_env(anthill);
     t_room *head = anthill->head;
-    t_node *sp = find_path(anthill, NULL);
-    t_node *sp2 = find_path(anthill, sp);
+    t_queue *paths = get_paths(anthill);
 
-    ft_putstr("first path: ");
-    print_links(sp);
-    ft_putstr("second path: ");
-    print_links(sp2);
+    print_queue(&paths);
     // char **path = ft_strsplit("a,b,c", ',');
 
 	return (0);
