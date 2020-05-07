@@ -24,9 +24,15 @@ typedef struct  s_node  t_node;
 typedef struct  s_room  t_room;
 typedef struct  s_queue t_queue;
 
+
 struct  s_node {
     char    *room;
     t_node  *next;
+};
+
+struct  s_queue {
+    t_node *path;
+    t_queue  *next;
 };
 
 struct  s_room
@@ -64,13 +70,14 @@ void    parse_room(char *room, int type, t_env *env);
 int     arr_size(char **arr);
 void    read_map_links(t_env *env);
 void    parse_link(char *room, t_env *env);
-t_node  *dequeue(t_node **queue);
-void    enqueue(t_node **queue, t_node *node);
-char    **get_path(t_env *env, char *start);
-void    bfs(t_env *env, char *start, char *dst);
+t_node  *dequeue(t_queue **queue);
+void    enqueue(t_queue **queue, t_node *new_path);
 void    print_links(t_node *head);
-int     get_index(t_env *env,char *room_name);
-t_node *reconstruct_path(t_env *env, char *start, char *end, char **prev);
-void    reverse(t_node **queue);
+t_node  *find_path(t_env *env, t_node *used_paths);
+void    print_queue(t_queue **queue);
+t_queue *create_queue(t_node *path);
+t_node  *appended_path(t_node **path, char *to_append);
+char    *last_in_path(t_node *path);
+int     contains_room(t_node *path, char *room);
 
 #endif
