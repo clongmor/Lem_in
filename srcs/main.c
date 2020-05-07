@@ -12,6 +12,7 @@
 
 #include "../includes/lem.h"
 
+
 int		main()
 {
     t_env *anthill;
@@ -20,19 +21,12 @@ int		main()
     parse_ants(anthill);
     read_map_rooms(anthill);
     read_map_links(anthill);
-    bfs(anthill, anthill->start, anthill->end);
     print_env(anthill);
     t_room *head = anthill->head;
-	//while ((read = get_next_line(0, &line)) == 1)
-	//{
-		//store in another double char pointer eachtime and free
-		//read all in then operate
-	//}
-	//read from stdinput
-	//error checking
-	// create lists with coords
-	//add room links
-	//call algorithim with # of ants
-	//free lists
+    t_queue *paths = get_paths(anthill);
+
+    print_queue(&paths);
+    // char **path = ft_strsplit("a,b,c", ',');
+
 	return (0);
 }
