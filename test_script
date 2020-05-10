@@ -11,10 +11,11 @@ cd libft
 
 cd ..
 echo "making lem_in executable"
-#make re > /dev/null 2>&1
+make re > /dev/null 2>&1
 echo ""
 
 echo "starting test runs..."
+
 touch test_output.txt > /dev/null 2>&1
 ./lem_in < maps/test_empty.map | > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
@@ -118,6 +119,16 @@ then
     echo "no_start passed"
 else
     echo "no_start failed"
+fi
+
+rm test_output.txt
+
+./lem_in < maps/test_room_with_L.map | > test_output.txt
+if head -n 1 test_output.txt | grep -q "ERROR";
+then
+    echo "room starting with L passed"
+else
+    echo "room starting with L failed"
 fi
 
 rm test_output.txt
