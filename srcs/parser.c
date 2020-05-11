@@ -12,18 +12,19 @@ void    parse_ants(t_env *env) {
         ants = ft_atoi(env->buff);
         if (ants < 1 || (only_digits(env->buff) == 0))
         {
-            ft_putstr("ERROR\n");
+            ft_putstr("ERROR1\n");
             exit(1);
         }
         else
         {
             env->nb_ants = ants;
         }
-        push_buffer(env);
+        // push_buffer(env);
+        free(env->buff);
     }
     else
     {
-        ft_putstr("ERROR\n");
+        ft_putstr("ERROR2\n");
         exit(1);
     }
 }
@@ -56,13 +57,13 @@ void    parse_room(char *room, int type, t_env *env) {
         }
         else
         {
-            ft_putstr("ERROR\n");
+            ft_putstr("ERROR3\n");
             exit(1);
         }
         
     } 
     else {
-        ft_putstr("ERROR\n");
+        ft_putstr("ERROR4\n");
         exit(1);
     }
 }
@@ -81,13 +82,13 @@ void    parse_link(char *room, t_env *env) {
         }
         else
         {
-            ft_putstr("ERROR\n");
+            ft_putstr("ERROR5\n");
             exit(1);
         }
     }
     else
     {
-        ft_putstr("ERROR\n");
+        ft_putstr("ERROR6\n");
         exit(1);
     }
 }
@@ -112,7 +113,7 @@ void    read_map_rooms(t_env *env) {
             if (ft_strchr(env->buff, ' '))
             {
                 if (env->buff[0] == 'L') {
-                    ft_putendl("ERROR");
+                    ft_putendl("ERROR7");
                     exit(1);
                 }
                 parse_room(env->buff, room_type, env);
@@ -121,16 +122,17 @@ void    read_map_rooms(t_env *env) {
             else
             {
                 if (start != 1 || end != 1) {
-                    ft_putstr("ERROR\n");
+                    ft_putstr("ERROR8\n");
                     exit(1);
                 }
                 if (!env->start || !env->end) {
-                    ft_putstr("ERROR\n");
+                    ft_putstr("ERROR9\n");
                     exit(1);
                 }
             }
         }
-        push_buffer(env);
+        // push_buffer(env);
+        free(env->buff);
     }
 }
 
@@ -141,10 +143,11 @@ void    read_map_links(t_env *env) {
             parse_link(env->buff, env);
         else if (env->buff[0] != '#')
         {
-            ft_putstr("ERROR\n");
+            ft_putstr("ERROR10\n");
             exit(1);
         }
-        push_buffer(env);
+        free(env->buff);
+        // push_buffer(env);
         if (get_next_line(0, &env->buff) <= 0)
             env->buff = NULL;
     }

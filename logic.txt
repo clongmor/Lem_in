@@ -57,3 +57,5 @@ structs storing coords, whether its a start or end room, an array(**) listing al
 
 need to check different rooms at same coordinates potentially??
 or same room name for different coordinates?? what to do
+
+check int_min and int_max for coords

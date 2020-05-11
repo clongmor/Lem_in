@@ -10,6 +10,7 @@ static int index_of(t_env *env, char *dst) {
 }
 
 t_queue *get_paths(t_env *env) {
+    printf("enter get_paths");
     t_room *room = NULL;
     t_node *neighbours = NULL;
     t_node *curr_path = NULL;
@@ -25,13 +26,15 @@ t_queue *get_paths(t_env *env) {
         visited[i] = 0;
         i++;
     }
-
+    printf("passed sizing");
     enqueue(&queue, create_node(env->start));
+    printf("passed enqueue");
     while (queue) {
         curr_path = dequeue(&queue);
         last = last_in_path(curr_path);
         int index = index_of(env, last);
 
+        printf("passed index");
         if (visited[index] == 0) {
             room = find_room(env, last);
             neighbours = room->links;
@@ -51,25 +54,4 @@ t_queue *get_paths(t_env *env) {
         }
     }
     return paths;
-}
-
-void    check_start_end(t_env *env) {
-        t_room *tmp;
-
-        tmp = env->head;
-        while (tmp) {
-            if (strcmp(tmp->name, env->start) == 0) {
-                if (!tmp->links) {
-                    ft_putstr("ERROR\n");
-                    exit(1);
-                }
-            }
-            else if (strcmp(tmp->name, env->end) == 0) {
-                if (!tmp->links) {
-                    ft_putstr("ERROR\n");
-                    exit(1);
-                }
-            }
-            tmp = tmp->next;
-        }
 }

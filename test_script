@@ -146,6 +146,5 @@ then
 else
     echo "test_01 passed"
 fi
-rm test_output.txt
 
 rm test_output.txt
