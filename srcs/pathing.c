@@ -53,4 +53,23 @@ t_queue *get_paths(t_env *env) {
     return paths;
 }
 
+void    check_start_end(t_env *env) {
+        t_room *tmp;
 
+        tmp = env->head;
+        while (tmp) {
+            if (strcmp(tmp->name, env->start) == 0) {
+                if (!tmp->links) {
+                    ft_putstr("ERROR\n");
+                    exit(1);
+                }
+            }
+            else if (strcmp(tmp->name, env->end) == 0) {
+                if (!tmp->links) {
+                    ft_putstr("ERROR\n");
+                    exit(1);
+                }
+            }
+            tmp = tmp->next;
+        }
+}

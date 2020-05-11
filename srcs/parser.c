@@ -12,7 +12,7 @@ void    parse_ants(t_env *env) {
         ants = ft_atoi(env->buff);
         if (ants < 1 || (only_digits(env->buff) == 0))
         {
-            ft_putstr("Error parsing nb ants line 14");
+            ft_putstr("ERROR\n");
             exit(1);
         }
         else
@@ -23,7 +23,7 @@ void    parse_ants(t_env *env) {
     }
     else
     {
-        ft_putstr("Error parsing nb ants line");
+        ft_putstr("ERROR\n");
         exit(1);
     }
 }
@@ -40,7 +40,8 @@ void    parse_room(char *room, int type, t_env *env) {
 
     if (arr_size(room_arr) == 3) 
     {
-        if (only_digits(room_arr[1]) && only_digits(room_arr[1]))
+        if (only_digits(room_arr[1]) && only_digits(room_arr[2]))
+        //pretty sure this is meant to check 1 and 2 or room_arr, typo potentially
         {
             name = ft_strdup(room_arr[0]);
             x = ft_atoi(room_arr[1]);
@@ -55,13 +56,14 @@ void    parse_room(char *room, int type, t_env *env) {
         }
         else
         {
-            printf("Invalid coordinates");
+            ft_putstr("ERROR\n");
+            exit(1);
         }
         
-        
-
-    } else {
-        printf("Incorrect num spaces");
+    } 
+    else {
+        ft_putstr("ERROR\n");
+        exit(1);
     }
 }
 
@@ -79,24 +81,32 @@ void    parse_link(char *room, t_env *env) {
         }
         else
         {
-            printf("Could not find rooms\n");
+            ft_putstr("ERROR\n");
+            exit(1);
         }
     }
     else
     {
-        printf("Incorrect format: %s\n", room);
+        ft_putstr("ERROR\n");
+        exit(1);
     }
 }
 
 void    read_map_rooms(t_env *env) {
     int room_type;
-    
+    int start;
+    int end;
+
+    start = 0;
+    end = 0;
     while (get_next_line(0, &env->buff) > 0) {
         if (ft_strequ(env->buff, "##start")) {
             room_type = 1;
+            start = 1;
         }
         else if (ft_strequ(env->buff, "##end")) {
             room_type = 2;
+            end = 1;
         }
         else if (env->buff[0] != '#') {
             if (ft_strchr(env->buff, ' '))
@@ -106,7 +116,14 @@ void    read_map_rooms(t_env *env) {
             } 
             else
             {
-                return ;
+                if (start != 1 || end != 1) {
+                    ft_putstr("ERROR\n");
+                    exit(1);
+                }
+                if (!env->start || !env->end) {
+                    ft_putstr("ERROR\n");
+                    exit(1);
+                }
             }
         }
         free(env->buff);
@@ -120,7 +137,8 @@ void    read_map_links(t_env *env) {
             parse_link(env->buff, env);
         else if (env->buff[0] != '#')
         {
-            return ;
+            ft_putstr("ERROR\n");
+            exit(1);
         }
         free(env->buff);
         if (get_next_line(0, &env->buff) <= 0)

@@ -79,5 +79,5 @@ t_queue *create_queue(t_node *path);
 t_node  *appended_path(t_node **path, char *to_append);
 char    *last_in_path(t_node *path);
 int     room_count(t_node *path, char *room);
-
+void    check_start_end(t_env *env);
 #endif

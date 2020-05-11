@@ -54,3 +54,6 @@ perror (takes in string to print before errno message and prints both), exit
 
 link lists connecting rooms
 structs storing coords, whether its a start or end room, an array(**) listing all the other rooms that room is connected to, room name and a *next. maybe add an isoccupied variable.
+
+need to check different rooms at same coordinates potentially??
+or same room name for different coordinates?? what to do

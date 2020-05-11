@@ -28,7 +28,7 @@ void    print_env(t_env *env) {
     t_room *tmp;
 
     tmp = env->head;
-    printf("nb atns: %i\n", env->nb_ants);
+    printf("nb ants: %i\n", env->nb_ants);
     while (tmp) {
         printf("room: %s | links : ", tmp->name);
         t_node *tmp_link = tmp->links;
@@ -40,7 +40,7 @@ void    print_env(t_env *env) {
         // Print links
         tmp = tmp->next;
     }
-    printf("start: %s\nend: %s", env->start, env->end);
+    printf("start: %s\nend: %s\n", env->start, env->end);
 }
 
 void    delete_env(t_env *env) {

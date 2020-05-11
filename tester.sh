@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./run < maps/test_01.txt
+./lem_in < maps/test_01.map
