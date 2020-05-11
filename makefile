@@ -5,7 +5,8 @@ SRCS =	./srcs/env.c \
 		./srcs/parser.c \
 		./srcs/helper.c \
 		./srcs/queue.c \
-		./srcs/pathing.c
+		./srcs/pathing.c \
+		./srcs/flow.c
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
