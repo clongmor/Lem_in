@@ -128,6 +128,7 @@ void    read_map_rooms(t_env *env) {
                     ft_putstr("ERROR\n");
                     exit(1);
                 }
+                return ;
             }
         }
         push_buffer(env);

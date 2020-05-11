@@ -21,12 +21,15 @@ int		main()
     parse_ants(anthill);
     read_map_rooms(anthill);
     read_map_links(anthill);
-    check_start_end(anthill);
     t_room *head = anthill->head;
     t_queue *paths = get_paths(anthill);
-    print_map(anthill);
-    ft_putchar('\n');
-    move_ants(anthill, paths);
-
+    if (paths) {
+        print_map(anthill);
+        ft_putchar('\n');    
+        move_ants(anthill, paths);
+    }
+    else {
+        ft_putendl("ERROR");
+    }
 	return (0);
 }
