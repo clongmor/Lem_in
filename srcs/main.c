@@ -21,12 +21,11 @@ int		main()
     parse_ants(anthill);
     read_map_rooms(anthill);
     read_map_links(anthill);
-    print_env(anthill);
     t_room *head = anthill->head;
     t_queue *paths = get_paths(anthill);
-
-    print_queue(&paths);
-    // char **path = ft_strsplit("a,b,c", ',');
+    print_map(anthill);
+    ft_putchar('\n');
+    move_ants(anthill, paths);
 
 	return (0);
 }

@@ -21,7 +21,42 @@ t_env   *create_env(void) {
     }
     new_env->head = NULL;
     new_env->size = 0;
+    new_env->map = NULL;
     return new_env;
+}
+
+void    print_map(t_env *env) {
+    t_map *prev;
+
+    while (env->map) {
+        prev = env->map;
+        env->map = env->map->next;
+        ft_putendl(prev->line);
+        free(prev);
+    }
+}
+
+void    push_buffer(t_env *env) {
+    t_map *new_map;
+    t_map *cursor;
+
+    if (env->buff)
+    {
+        new_map = (t_map *)malloc(sizeof(t_map));
+        new_map->line = ft_strdup(env->buff);
+        new_map->next = NULL;
+        if (env->map == NULL)
+            env->map = new_map;
+        else {
+            cursor = env->map;
+
+            while (cursor->next)
+                cursor = cursor->next;
+            cursor->next = new_map;
+        }
+        free(env->buff);
+        env->buff = NULL;
+    }
 }
 
 void    print_env(t_env *env) {

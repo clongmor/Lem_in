@@ -23,7 +23,20 @@ typedef int bool;
 typedef struct  s_node  t_node;
 typedef struct  s_room  t_room;
 typedef struct  s_queue t_queue;
+typedef struct  s_ant t_ant;
+typedef struct  s_map t_map;
 
+struct s_map
+{
+    char *line;
+    t_map *next;
+};
+
+struct  s_ant {
+    int name;
+    char *room;
+    t_ant *next;
+};
 
 struct  s_node {
     char    *room;
@@ -52,6 +65,7 @@ typedef struct  s_env {
     char    *start;
     char    *end;
     char    *buff;
+    t_map   *map;
 }               t_env;
 
 t_env   *create_env(void);
@@ -79,5 +93,8 @@ t_queue *create_queue(t_node *path);
 t_node  *appended_path(t_node **path, char *to_append);
 char    *last_in_path(t_node *path);
 int     room_count(t_node *path, char *room);
+void    move_ants(t_env *env, t_queue *paths);
+void    push_buffer(t_env *env);
+void    print_map(t_env *env);
 
 #endif
