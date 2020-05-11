@@ -2,6 +2,7 @@
 
 static int index_of(t_env *env, char *dst) {
     t_room *room = find_room(env, dst);
+    ft_putstr("made a room");
     int index = -1;
 
     if (room)
@@ -10,7 +11,6 @@ static int index_of(t_env *env, char *dst) {
 }
 
 t_queue *get_paths(t_env *env) {
-    printf("enter get_paths");
     t_room *room = NULL;
     t_node *neighbours = NULL;
     t_node *curr_path = NULL;
@@ -26,12 +26,11 @@ t_queue *get_paths(t_env *env) {
         visited[i] = 0;
         i++;
     }
-    printf("passed sizing");
     enqueue(&queue, create_node(env->start));
-    printf("passed enqueue");
     while (queue) {
         curr_path = dequeue(&queue);
         last = last_in_path(curr_path);
+        ft_putstr("passed last_in_path");
         int index = index_of(env, last);
 
         printf("passed index");

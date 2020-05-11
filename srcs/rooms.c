@@ -50,7 +50,10 @@ t_room  *find_room(t_env *env, char *dst) {
 
     tmp = env->head;
     while (tmp) {
+        ft_putstr(tmp->name);
+        ft_putendl(dst);
         if (!ft_strcmp(tmp->name, dst)) {
+            ft_putstr("returning tmp\n");
              return (tmp);
         }
         tmp = tmp->next;
