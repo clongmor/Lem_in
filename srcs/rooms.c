@@ -12,11 +12,13 @@
 
 #include "../includes/lem.h"
 
-t_room  *create_room(char *name, int x, int y, int index) {
+t_room *create_room(char *name, int x, int y, int index)
+{
     t_room *new_room;
 
     new_room = (t_room *)malloc(sizeof(t_room));
-    if (!new_room) {
+    if (!new_room)
+    {
         return NULL;
     }
     new_room->x = x;
@@ -28,15 +30,17 @@ t_room  *create_room(char *name, int x, int y, int index) {
     return new_room;
 }
 
-void    add_room(t_env *env, t_room *room) {
+void add_room(t_env *env, t_room *room)
+{
     t_room *tmp;
 
     tmp = env->head;
-    if (!tmp) 
+    if (!tmp)
     {
         env->head = room;
     }
-    else {
+    else
+    {
         while (tmp->next)
         {
             tmp = tmp->next;
@@ -45,13 +49,17 @@ void    add_room(t_env *env, t_room *room) {
     }
 }
 
-t_room  *find_room(t_env *env, char *dst) {
-    t_room *tmp;
+t_room *find_room(t_env *env, char *dst)
+{
+    t_room *tmp = NULL;
 
     tmp = env->head;
-    while (tmp) {
-        if (!ft_strcmp(tmp->name, dst)) {
-             return (tmp);
+
+    while (tmp)
+    {
+        if (ft_strequ(tmp->name, dst))
+        {
+            return (tmp);
         }
         tmp = tmp->next;
     }

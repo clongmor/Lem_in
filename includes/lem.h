@@ -76,7 +76,6 @@ void    add_link(t_env *env, char *src, char *dst);
 void    push_link_end(t_room *room, t_node *new_link);
 void    add_room(t_env *env, t_room *room);
 void    print_env(t_env *env);
-void    delete_env(t_env *env);
 void    parse_ants(t_env *env);
 int     only_digits(char *str);
 void    read_map_rooms(t_env *env);
@@ -88,7 +87,6 @@ t_node  *dequeue(t_queue **queue);
 void    enqueue(t_queue **queue, t_node *new_path);
 void    print_links(t_node *head);
 t_queue *get_paths(t_env *env);
-void    print_queue(t_queue **queue);
 t_queue *create_queue(t_node *path);
 t_node  *appended_path(t_node **path, char *to_append);
 char    *last_in_path(t_node *path);
@@ -97,5 +95,8 @@ void    check_start_end(t_env *env);
 void    move_ants(t_env *env, t_queue *paths);
 void    push_buffer(t_env *env);
 void    print_map(t_env *env);
+void    free_array(char **arr);
+void    free_rooms(t_room *head);
+void    free_links(t_node *head);
 
 #endif

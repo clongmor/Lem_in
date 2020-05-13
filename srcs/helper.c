@@ -40,3 +40,15 @@ int list_contains(t_node *head, char *dst) {
     }
     return (0);
 }
+
+void    free_array(char **arr) {
+    char *prev;
+
+    while (*arr)
+    {
+        prev = *arr;
+        arr++;
+        free(prev);
+    }
+    arr = NULL;
+}

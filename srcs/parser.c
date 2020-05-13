@@ -32,7 +32,6 @@ void    parse_room(char *room, int type, t_env *env) {
     // convert and add room
     char **room_arr;
     t_room *new_room;
-    char *name;
     int x;
     int y;
 
@@ -43,25 +42,49 @@ void    parse_room(char *room, int type, t_env *env) {
         if (only_digits(room_arr[1]) && only_digits(room_arr[2]))
         //pretty sure this is meant to check 1 and 2 or room_arr, typo potentially
         {
-            name = ft_strdup(room_arr[0]);
+            char *name = ft_strdup(room_arr[0]);
             x = ft_atoi(room_arr[1]);
             y = ft_atoi(room_arr[2]);
             new_room = create_room(name, x, y, env->size);
             env->size++;
             add_room(env, new_room);
-            if (type == 1)
-                env->start = name;
-            else if (type == 2)
-                env->end = name;
+            if (type == 1) {
+                if (env->start == NULL) {
+                    env->start = ft_strdup(name);
+                } else {
+                    free(name);
+                    free_array(room_arr);
+                    free(room_arr);
+                    ft_putstr("ERROR\n");
+                    exit(1);
+                }
+            }
+            else if (type == 2) {
+                if (env->end == NULL) {
+                    env->end = ft_strdup(name);
+                } else {
+                    free(name);
+                    free_array(room_arr);
+                    free(room_arr);
+                    ft_putstr("ERROR\n");
+                    exit(1);
+                }
+            }
+            free(name);
         }
         else
         {
+            free_array(room_arr);
+            free(room_arr);
             ft_putstr("ERROR\n");
             exit(1);
         }
-        
+        free_array(room_arr);
+        free(room_arr);
     } 
     else {
+        free_array(room_arr);
+        free(room_arr);
         ft_putstr("ERROR\n");
         exit(1);
     }
@@ -71,6 +94,7 @@ void    parse_link(char *room, t_env *env) {
     char** rooms;
 
     // char *tmp = ft_strdup(room);
+    rooms = NULL;
     rooms = ft_strsplit(room, '-');
     // printf("Room after: %s\n", room);
     if (arr_size(rooms) == 2)
@@ -81,12 +105,18 @@ void    parse_link(char *room, t_env *env) {
         }
         else
         {
+            free(rooms);
             ft_putstr("ERROR\n");
             exit(1);
         }
+        free_array(rooms);
+        free(rooms);
+        rooms = NULL;
     }
     else
     {
+        free_array(rooms);
+        free(rooms);
         ft_putstr("ERROR\n");
         exit(1);
     }
