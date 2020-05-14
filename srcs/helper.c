@@ -28,7 +28,9 @@ int arr_size(char **arr) {
 
 void print_links(t_node *head) {
     while (head != NULL) {
-        ft_putstr("L: [" + head->room + "] ")
+        ft_putstr("L: [");
+        ft_putstr(head->room);
+        ft_putstr("] ");
         // printf("L: [%s] ", head->room);
         head = head->next;
     }
