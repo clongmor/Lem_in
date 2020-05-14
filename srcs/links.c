@@ -46,7 +46,9 @@ void    add_link(t_env *env, char *src, char *dst) {
     src_room = find_room(env, src);
     dst_room = find_room(env, dst);
     if ((src_room == NULL) || (dst_room == NULL)) {
-        printf("Could not find rooms to link\n");
+        ft_putstr("ERROR\n");
+        //need to free here
+        exit(1);
     }
     else {
         push_link_end(src_room, create_node(dst));

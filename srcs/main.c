@@ -21,7 +21,6 @@ int		main()
     parse_ants(anthill);
     read_map_rooms(anthill);
     read_map_links(anthill);
-    print_env(anthill);
     t_room *head = anthill->head;
     t_queue *paths = get_paths(anthill);
     if (paths) {
@@ -31,6 +30,7 @@ int		main()
     }
     else {
         ft_putendl("ERROR");
+        //need to free here
     }
 	return (0);
 }
