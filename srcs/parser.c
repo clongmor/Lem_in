@@ -37,40 +37,50 @@ void    parse_room(char *room, int type, t_env *env) {
 
     room_arr = ft_strsplit(room, ' ');
 
-    if (arr_size(room_arr) == 3) 
+    if (arr_size(room_arr) == 3)
     {
         if (only_digits(room_arr[1]) && only_digits(room_arr[2]))
         //pretty sure this is meant to check 1 and 2 or room_arr, typo potentially
         {
-            char *name = ft_strdup(room_arr[0]);
-            x = ft_atoi(room_arr[1]);
-            y = ft_atoi(room_arr[2]);
-            new_room = create_room(name, x, y, env->size);
-            env->size++;
-            add_room(env, new_room);
-            if (type == 1) {
-                if (env->start == NULL) {
-                    env->start = ft_strdup(name);
-                } else {
-                    free(name);
-                    free_array(room_arr);
-                    free(room_arr);
-                    ft_putstr("ERROR\n");
-                    exit(1);
+            if ((int_overflow(room_arr[1]) == 0) && (int_overflow(room_arr[2]) == 0)) 
+            {
+                char *name = ft_strdup(room_arr[0]);
+                x = ft_atoi(room_arr[1]);
+                y = ft_atoi(room_arr[2]);
+                new_room = create_room(name, x, y, env->size);
+                env->size++;
+                add_room(env, new_room);
+                if (type == 1) {
+                    if (env->start == NULL) {
+                        env->start = ft_strdup(name);
+                    } else {
+                        free(name);
+                        free_array(room_arr);
+                        free(room_arr);
+                        ft_putstr("ERROR\n");
+                        exit(1);
+                    }
                 }
-            }
-            else if (type == 2) {
-                if (env->end == NULL) {
-                    env->end = ft_strdup(name);
-                } else {
-                    free(name);
-                    free_array(room_arr);
-                    free(room_arr);
-                    ft_putstr("ERROR\n");
-                    exit(1);
+                else if (type == 2) {
+                    if (env->end == NULL) {
+                        env->end = ft_strdup(name);
+                    } else {
+                        free(name);
+                        free_array(room_arr);
+                        free(room_arr);
+                        ft_putstr("ERROR\n");
+                        exit(1);
+                    }
                 }
+                free(name);
             }
-            free(name);
+            else
+            {
+                free_array(room_arr);
+                free(room_arr);
+                ft_putstr("ERROR\n");
+                exit(1); 
+            }
         }
         else
         {
@@ -105,7 +115,7 @@ void    parse_link(char *room, t_env *env) {
         }
         else
         {
-            free(rooms);
+            free_array(rooms);
             ft_putstr("ERROR\n");
             exit(1);
         }

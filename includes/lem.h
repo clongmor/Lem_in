@@ -98,5 +98,6 @@ void    print_map(t_env *env);
 void    free_array(char **arr);
 void    free_rooms(t_room *head);
 void    free_links(t_node *head);
+int		int_overflow(char *str);
 
 #endif
