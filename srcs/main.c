@@ -30,6 +30,7 @@ int		main()
     }
     else {
         ft_putendl("ERROR");
+        //need to free here
     }
 	return (0);
 }

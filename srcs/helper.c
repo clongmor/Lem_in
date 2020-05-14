@@ -4,6 +4,8 @@ int only_digits(char *str) {
     int digit_count;
 
     digit_count = 0;
+    if (ft_memcmp(str, "-", 1) == 0 || ft_memcmp(str, "+", 1))
+        str++;
     while (*str) {
         if (ft_isdigit(*str) == 0) {
             return (0);
@@ -26,10 +28,11 @@ int arr_size(char **arr) {
 
 void print_links(t_node *head) {
     while (head != NULL) {
-        printf("L: [%s] ", head->room);
+        ft_putstr("L: [" + head->room + "] ")
+        // printf("L: [%s] ", head->room);
         head = head->next;
     }
-    printf("\n");
+    ft_putstr("\n");
 }
 
 int list_contains(t_node *head, char *dst) {

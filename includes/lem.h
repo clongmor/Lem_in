@@ -18,6 +18,8 @@
 
 # define TRUE 1
 # define FALSE 0
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 typedef int bool;
 typedef struct  s_node  t_node;
@@ -91,7 +93,6 @@ t_queue *create_queue(t_node *path);
 t_node  *appended_path(t_node **path, char *to_append);
 char    *last_in_path(t_node *path);
 int     room_count(t_node *path, char *room);
-void    check_start_end(t_env *env);
 void    move_ants(t_env *env, t_queue *paths);
 void    push_buffer(t_env *env);
 void    print_map(t_env *env);

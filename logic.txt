@@ -5,11 +5,7 @@ lack of data to process -> display error
 incorrect data/empty lines stop the readin of data
 rooms never start with "L" or "#", but can start any other way.
 
-ants all start in ##start
-only one ant can occuppy a room at a time (except start and end)
-each turn, show all ants moves for that turn in one line.
-
-Display:
+Display: - done
 
 number_of_ants
 the_rooms (coordinates)
@@ -25,35 +21,38 @@ Of course, your algorithm must render within a reasonable time, even in a case w
 4000 rooms. 2 or 3 seconds is great, 9 seconds is mediocre, 15 seconds is too much.
 as well as read and write must be fast.
 
-example: fbouquet@thepathfinder /tmp/lem-in $ ./lem-in < subject2-1.map
-2
-1 0 2
-##start
-0 2 0
-##end (modifies line straight after it)
-4 2 6
-2 4 2
-3 4 4
-0-1
-0-2
-2-3
-3-4
-4-1
-requirements:
-executable == lem_in
-need a makefile
-libft
-error handling
-memory leaks
-author file
-
 allowed functions(unless bonus):
 malloc, free, read, write, 
 strerror(takes in errno and returns error message assosc), 
-perror (takes in string to print before errno message and prints both), exit
-
-link lists connecting rooms
-structs storing coords, whether its a start or end room, an array(**) listing all the other rooms that room is connected to, room name and a *next. maybe add an isoccupied variable.
+perror (takes in string to print before errno message and prints both), 
+exit
 
 need to check different rooms at same coordinates potentially??
 or same room name for different coordinates?? what to do
+
+< int max/min don't error out for coords, but do error out for ants numbers.
+
+to do:
+If you are clever, you will use your library for your lem-in. Also submit your folder
+libft including its own Makefile at the root of your repository. Your Makefile
+will have to compile the library, and then compile your project. - done
+
+memory leaks
+author file - done
+check illegal functions - done.
+
+You must to display your results on the standard output in the following format:
+number_of_ants
+the_rooms
+the_links
+
+Lx-y Lz-w Lr-o ...
+need to change this so we display the file contents and then the ant paths only, so can remove print env now.
+
+Of course, your algorithm must render within a reasonable time, even in a case with
+4000 rooms. 2 or 3 seconds is great, 9 seconds is mediocre, 15 seconds is too much.
+These are maps with sometimes more than 10,000 lines, the way you
+read and write data must also be fairly fast.
+
+If there isn’t enough data to process normally you must display ERROR
+therefore, we can display other things as long as it says error too. (i think)
