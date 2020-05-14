@@ -22,6 +22,8 @@ t_env   *create_env(void) {
     new_env->head = NULL;
     new_env->size = 0;
     new_env->map = NULL;
+    new_env->start = NULL;
+    new_env->end = NULL;
     return new_env;
 }
 
@@ -32,6 +34,7 @@ void    print_map(t_env *env) {
         prev = env->map;
         env->map = env->map->next;
         ft_putendl(prev->line);
+        free(prev->line);
         free(prev);
     }
 }
@@ -78,22 +81,32 @@ void    print_env(t_env *env) {
     printf("start: %s\nend: %s\n", env->start, env->end);
 }
 
-void    delete_env(t_env *env) {
-    // Free everything in env
-    if (env != NULL) {
-        t_room *tmp_room;
+void free_links(t_node *head) {
+    t_node *curr = head;
+    t_node *next = NULL;
 
-        while (env->head != NULL) {
-            t_node *tmp_link;
-            
-            tmp_room = env->head;
-            env->head = env->head->next;
-            while (tmp_room->links != NULL) {
-                tmp_link = tmp_room->links;
-                tmp_room->links = tmp_room->links->next;
-                free(tmp_link);
-            }
-            free(tmp_room);
-        }
+    while (curr) {
+        next = curr->next;
+        free(curr->room);
+        free(curr);
+        curr = next;
+    }
+}
+
+void free_rooms(t_room *head) {
+    t_room *curr = head;
+    t_room *next = NULL;
+
+    while (curr) {
+        ft_putstr("freeing: ");
+        ft_putstr(curr->name);
+        ft_putendl("");
+        next = curr->next;
+        // free_links(curr->links);
+        free(curr->name);
+        curr->name = NULL;
+        free(curr);
+        curr = NULL;
+        curr = next;
     }
 }
