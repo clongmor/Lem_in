@@ -32,5 +32,7 @@ int		main()
         ft_putendl("ERROR");
         //need to free here
     }
+    free_rooms(head);
+    //free here
 	return (0);
 }

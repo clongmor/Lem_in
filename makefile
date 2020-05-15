@@ -11,14 +11,14 @@ SRCS =	./srcs/env.c \
 EXECUTABLE = lemon
 LIBRARY = lib_ft
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -ggdb3
 NAME = lem-in
 LINKER = -L./libft -lft
 
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(LIBRARY)
-	$(CC) $(SRCS) -o $(NAME) $(LINKER)
+	$(CC) $(SRCS) $(FLAGS) -o $(NAME) $(LINKER)
 
 $(LIBRARY):
 	make re -C libft

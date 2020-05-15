@@ -31,7 +31,6 @@ t_queue *get_paths(t_env *env)
     t_node *start_node = create_node(env->start);
     enqueue(&queue, start_node);
     free_links(start_node);
-    int it = 0;
 
     while (queue)
     {
