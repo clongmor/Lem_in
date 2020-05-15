@@ -12,13 +12,29 @@
 
 #include "../includes/lem.h"
 
-static void    free_env(t_env *env)
+static  void    free_queue(t_queue *head)
+{
+    t_queue *curr = head;
+    t_queue *next = NULL;
+
+    while (curr) {
+        next = curr->next;
+        free_links(curr->path);
+        curr = next;
+    }
+}
+
+static void    free_env(t_env *env, t_queue *queue)
 {
     free_rooms(env->head);
     free(env->start);
     free(env->end);
     free(env->buff);
+    free(env);
+    free_queue(queue);
+    free(queue);
 }
+
 
 int		main()
 {
@@ -35,10 +51,10 @@ int		main()
         move_ants(anthill, paths);
     }
     else {
+        free_env(anthill, paths);
         ft_putendl("ERROR");
         //need to free here
     }
-    free_env(anthill);
-    free(anthill);
+    free_env(anthill, paths);
 	return (0);
 }
