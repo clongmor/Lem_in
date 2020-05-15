@@ -98,5 +98,7 @@ void    free_array(char **arr);
 void    free_rooms(t_room *head);
 void    free_links(t_node *head);
 int		int_overflow(char *str);
+void    free_and_exit_rooms(char *name, char **room_arr);
+
 
 #endif
