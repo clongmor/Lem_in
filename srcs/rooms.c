@@ -43,6 +43,16 @@ void add_room(t_env *env, t_room *room)
     {
         while (tmp->next)
         {
+            if (ft_strcmp(tmp->name, room->name) == 0) {
+                ft_putstr("ERROR\n");
+                //need to free here
+                exit(1);
+            }
+            else if (tmp->x == room->x && tmp->y == room->y) {
+                ft_putstr("ERROR\n");
+                //need to free here
+                exit(1);
+            }
             tmp = tmp->next;
         }
         tmp->next = room;

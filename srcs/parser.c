@@ -15,12 +15,10 @@ void    parse_ants(t_env *env) {
             exit(1);
         }
         else
-        {
             env->nb_ants = ants;
-            ft_putendl(env->buff);
-        }
-        // push_buffer(env);
-        free(env->buff);
+        // ft_putendl(env->buff);
+        push_buffer(env);
+        // free(env->buff);
     }
     else
     {
@@ -142,12 +140,10 @@ void    read_map_rooms(t_env *env) {
         if (ft_strequ(env->buff, "##start")) {
             room_type = 1;
             start = 1;
-            ft_putendl(env->buff);
         }
         else if (ft_strequ(env->buff, "##end")) {
             room_type = 2;
-            end = 1;
-            ft_putendl(env->buff);
+            end = 1;;
         }
         else if (env->buff[0] != '#') {
             if (ft_strchr(env->buff, ' '))
@@ -158,7 +154,6 @@ void    read_map_rooms(t_env *env) {
                     exit(1);
                 }
                 parse_room(env->buff, room_type, env);
-                ft_putendl(env->buff);
                 room_type = 0;
             } 
             else
@@ -176,8 +171,9 @@ void    read_map_rooms(t_env *env) {
                 return ;
             }
         }
-        // push_buffer(env);
-        free(env->buff);
+        // ft_putendl(env->buff);
+        push_buffer(env);
+        // free(env->buff);
     }
 }
 
@@ -186,15 +182,15 @@ void    read_map_links(t_env *env) {
     {
         if (env->buff[0] != '#' && ft_strchr(env->buff, '-')) {
             parse_link(env->buff, env);
-            ft_putendl(env->buff);
         }
         else if (env->buff[0] != '#')
         {
             ft_putstr("ERROR\n");
             exit(1);
         }
-        free(env->buff);
-        // push_buffer(env);
+        // ft_putendl(env->buff);
+        // free(env->buff);
+        push_buffer(env);
         if (get_next_line(0, &env->buff) <= 0)
             env->buff = NULL;
     }
