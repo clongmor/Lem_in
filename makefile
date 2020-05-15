@@ -12,7 +12,7 @@ EXECUTABLE = lemon
 LIBRARY = lib_ft
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
-NAME = lem_in
+NAME = lem-in
 LINKER = -L./libft -lft
 
 all: $(EXECUTABLE)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "NB: this script must be run from inside the lem_in folder or else it will fail"
+echo "NB: this script must be run from inside the lem-in folder or else it will fail"
 echo "now attempting to execute"
 echo ""
 
@@ -10,13 +10,13 @@ cd libft
 #make clean > /dev/null 2>&1
 
 cd ..
-echo "making lem_in executable"
+echo "making lem-in executable"
 make re > /dev/null 2>&1
 echo ""
 
 echo "starting test runs for error maps..."
 touch test_output.txt > /dev/null 2>&1
-./lem_in < maps/test_empty.map > test_output.txt
+./lem-in < maps/test_empty.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "empty input passed"
@@ -24,7 +24,7 @@ else
     echo "empty input failed"
 fi
 
-./lem_in < maps/test_half_link.map > test_output.txt
+./lem-in < maps/test_half_link.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "half_link passed"
@@ -32,7 +32,7 @@ else
     echo "half_link failed"
 fi
 
-./lem_in < maps/test_half_room_line.map > test_output.txt
+./lem-in < maps/test_half_room_line.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "half_room_line passed"
@@ -40,7 +40,7 @@ else
     echo "half_room_line failed"
 fi
 
-./lem_in < maps/test_incorrect_link.map > test_output.txt
+./lem-in < maps/test_incorrect_link.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "incorrect_link passed"
@@ -48,7 +48,7 @@ else
     echo "incorrect_link failed"
 fi
 
-./lem_in < maps/test_no_ant.map > test_output.txt
+./lem-in < maps/test_no_ant.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_ant passed"
@@ -56,7 +56,7 @@ else
     echo "no_ant failed"
 fi
 
-./lem_in < maps/test_no_end_#.map > test_output.txt
+./lem-in < maps/test_no_end_#.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_end_# passed"
@@ -64,7 +64,7 @@ else
     echo "no_end_# failed"
 fi
 
-./lem_in < maps/test_no_end_link.map > test_output.txt
+./lem-in < maps/test_no_end_link.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_end_link passed"
@@ -72,7 +72,7 @@ else
     echo "no_end_link failed"
 fi
 
-./lem_in < maps/test_no_end.map > test_output.txt
+./lem-in < maps/test_no_end.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_end passed"
@@ -80,7 +80,7 @@ else
     echo "no_end failed"
 fi
 
-./lem_in < maps/test_no_link.map > test_output.txt
+./lem-in < maps/test_no_link.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_link passed"
@@ -88,7 +88,7 @@ else
     echo "no_link failed"
 fi
 
-./lem_in < maps/test_no_room.map > test_output.txt
+./lem-in < maps/test_no_room.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_room passed"
@@ -96,7 +96,7 @@ else
     echo "no_room failed"
 fi
 
-./lem_in < maps/test_no_start_#.map > test_output.txt
+./lem-in < maps/test_no_start_#.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_start_# passed"
@@ -104,7 +104,7 @@ else
     echo "no_start_# failed"
 fi
 
-./lem_in < maps/test_no_start_link.map > test_output.txt
+./lem-in < maps/test_no_start_link.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_start_link passed"
@@ -112,7 +112,7 @@ else
     echo "no_start_link failed"
 fi
 
-./lem_in < maps/test_no_start.map > test_output.txt
+./lem-in < maps/test_no_start.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "no_start passed"
@@ -120,7 +120,7 @@ else
     echo "no_start failed"
 fi
 
-./lem_in < maps/test_text_coords.map > test_output.txt
+./lem-in < maps/test_text_coords.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "text_coords passed"
@@ -128,7 +128,7 @@ else
     echo "text_coords failed"
 fi
 
-./lem_in < maps/test_room_with_L.map > test_output.txt
+./lem-in < maps/test_room_with_L.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "ERROR";
 then
     echo "room starting with L passed"
@@ -139,7 +139,7 @@ fi
 echo " "
 echo "starting test runs for correct maps..."
 
-./lem_in < maps/test_01.map > test_output.txt
+./lem-in < maps/test_01.map > test_output.txt
 if head -n 1 test_output.txt | grep -q "fault";
 then
     echo "test_01 failed"

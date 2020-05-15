@@ -4,7 +4,7 @@ int only_digits(char *str) {
     int digit_count;
 
     digit_count = 0;
-    if (ft_memcmp(str, "-", 1) == 0 || ft_memcmp(str, "+", 1))
+    if (*str == '-' || *str == '+')
         str++;
     while (*str) {
         if (ft_isdigit(*str) == 0) {

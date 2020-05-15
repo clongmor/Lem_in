@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./lem_in < maps/test_01.map
+./lem-in < maps/test_01.map
