@@ -14,7 +14,6 @@
 # define LEMIN_H
 #include "../libft/libft.h"
 #include "../libft/get_next_line.h"
-#include <stdio.h>
 
 # define TRUE 1
 # define FALSE 0
