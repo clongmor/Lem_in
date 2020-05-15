@@ -11,104 +11,75 @@ void    parse_ants(t_env *env) {
         if (ants < 1 || (only_digits(env->buff) == 0))
         {
             ft_putstr("ERROR\n");
-            //need to free here
+            free_env(env);
             exit(1);
         }
         else
             env->nb_ants = ants;
-        // ft_putendl(env->buff);
-        push_buffer(env);
-        // free(env->buff);
+        // push_buffer(env);
+        ft_putendl(env->buff);
+        free(env->buff);
     }
     else
     {
         ft_putstr("ERROR\n");
-        //need to free here
+        free_env(env);
         exit(1);
     }
 }
 
 void    parse_room(char *room, int type, t_env *env) {
     // convert and add room
-    char **room_arr;
+    char    **room_arr;
     t_room *new_room;
-    int x;
-    int y;
+    int     x;
+    int     y;
+    char    *name;
 
+    name = NULL;
     room_arr = ft_strsplit(room, ' ');
-
     if (arr_size(room_arr) == 3)
     {
         if (only_digits(room_arr[1]) && only_digits(room_arr[2]))
         {
             if ((int_overflow(room_arr[1]) == 0) && (int_overflow(room_arr[2]) == 0)) 
             {
-                char *name = ft_strdup(room_arr[0]);
+                name = ft_strdup(room_arr[0]);
                 x = ft_atoi(room_arr[1]);
                 y = ft_atoi(room_arr[2]);
                 new_room = create_room(name, x, y, env->size);
                 env->size++;
                 if (find_room(env, name) == NULL)
-                {
                     add_room(env, new_room);
-                }
-                else
-                {
-                    free(name);
-                    free_array(room_arr);
-                    free(room_arr);
-                    ft_putstr("ERROR\n");
-                    exit(1);
-                }
-                
+                else {
+                    free_and_exit_rooms(name, room_arr, env, room);
+                    free(new_room->name);
+                    free(new_room);
+                } 
                 if (type == 1) {
-                    if (env->start == NULL) {
+                    if (env->start == NULL)
                         env->start = ft_strdup(name);
-                    } else {
-                        free(name);
-                        free_array(room_arr);
-                        free(room_arr);
-                        ft_putstr("ERROR\n");
-                        exit(1);
-                    }
+                    else
+                        free_and_exit_rooms(name, room_arr, env, room);  
                 }
                 else if (type == 2) {
-                    if (env->end == NULL) {
+                    if (env->end == NULL)
                         env->end = ft_strdup(name);
-                    } else {
-                        free(name);
-                        free_array(room_arr);
-                        free(room_arr);
-                        ft_putstr("ERROR\n");
-                        exit(1);
-                    }
+                    else
+                        free_and_exit_rooms(name, room_arr, env, room); 
                 }
                 free(name);
             }
             else
-            {
-                free_array(room_arr);
-                free(room_arr);
-                ft_putstr("ERROR\n");
-                exit(1); 
-            }
+                free_and_exit_rooms(name, room_arr, env, room); 
         }
         else
-        {
-            free_array(room_arr);
-            free(room_arr);
-            ft_putstr("ERROR\n");
-            exit(1);
-        }
+            free_and_exit_rooms(name, room_arr, env, room); 
         free_array(room_arr);
         free(room_arr);
     } 
-    else {
-        free_array(room_arr);
-        free(room_arr);
-        ft_putstr("ERROR\n");
-        exit(1);
-    }
+    else
+        free_and_exit_rooms(name, room_arr, env, room);
 }
 
 void    parse_link(char *room, t_env *env) {
@@ -119,26 +90,15 @@ void    parse_link(char *room, t_env *env) {
     if (arr_size(rooms) == 2)
     {
         if (find_room(env, rooms[0]) && find_room(env, rooms[1]))
-        {
             add_link(env, rooms[0], rooms[1]);
-        }
         else
-        {
-            free_array(rooms);
-            ft_putstr("ERROR\n");
-            exit(1);
-        }
+            free_and_exit_links(rooms);
         free_array(rooms);
         free(rooms);
         rooms = NULL;
     }
     else
-    {
-        free_array(rooms);
-        free(rooms);
-        ft_putstr("ERROR\n");
-        exit(1);
-    }
+        free_and_exit_links(rooms);
 }
 
 void    read_map_rooms(t_env *env) {
@@ -183,9 +143,9 @@ void    read_map_rooms(t_env *env) {
                 return ;
             }
         }
-        // ft_putendl(env->buff);
-        push_buffer(env);
-        // free(env->buff);
+        ft_putendl(env->buff);
+        free(env->buff);
+        // push_buffer(env); 
     }
 }
 
@@ -200,9 +160,9 @@ void    read_map_links(t_env *env) {
             ft_putstr("ERROR\n");
             exit(1);
         }
-        // ft_putendl(env->buff);
-        // free(env->buff);
-        push_buffer(env);
+        ft_putendl(env->buff);
+        free(env->buff);
+        // push_buffer(env);
         if (get_next_line(0, &env->buff) <= 0)
             env->buff = NULL;
     }

@@ -80,9 +80,8 @@ void free_rooms(t_room *head) {
 
     while (curr) {
         next = curr->next;
-        free_links(curr->links);
-        // free(curr->links);
-        // ft_putendl("")
+        if (curr->links)
+            free_links(curr->links);
         free(curr->name);
         curr->name = NULL;
         free(curr);

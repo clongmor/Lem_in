@@ -6,19 +6,20 @@ SRCS =	./srcs/env.c \
 		./srcs/helper.c \
 		./srcs/queue.c \
 		./srcs/pathing.c \
-		./srcs/flow.c
+		./srcs/flow.c \
+		./srcs/free.c
 
 EXECUTABLE = lemon
 LIBRARY = lib_ft
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -ggdb3
 NAME = lem-in
 LINKER = -L./libft -lft
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(LIBRARY)
-	$(CC) $(SRCS) -o $(NAME) $(LINKER) $(FLAGS)
+$(EXECUTABLE): 
+	$(CC) $(SRCS) $(FLAGS) -o $(NAME) $(LINKER)
 
 $(LIBRARY):
 	make re -C libft

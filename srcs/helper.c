@@ -61,18 +61,12 @@ void    free_array(char **arr) {
 int		int_overflow(char *str)
 {
 	int ret;
-	int is_neg;
 
 	ret = 0;
-	is_neg = 1;
 	if (ft_strequ(str, "-2147483648"))
 		return (0);
 	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			is_neg = -1;
 		str++;
-	}
 	while (*str)
 	{
 		ret = ret * 10 + (int)(*str - '0');

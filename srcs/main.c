@@ -20,11 +20,12 @@ static  void    free_queue(t_queue *head)
     while (curr) {
         next = curr->next;
         free_links(curr->path);
+        free(curr);
         curr = next;
     }
 }
 
-static void    free_env(t_env *env, t_queue *queue)
+static void    free_all(t_env *env, t_queue *queue)
 {
     free_rooms(env->head);
     free(env->start);
@@ -32,7 +33,6 @@ static void    free_env(t_env *env, t_queue *queue)
     free(env->buff);
     free(env);
     free_queue(queue);
-    free(queue);
 }
 
 
@@ -51,11 +51,11 @@ int		main()
         move_ants(anthill, paths);
     }
     else {
-        free_env(anthill, paths);
-        ft_putendl("ERROR");
+        free_all(anthill, paths);
+        ft_putendl("ERROR\n");
+        exit(1);
         //need to free here
     }
-    free_env(anthill, paths);
-    while (1);
+    free_all(anthill, paths);
 	return (0);
 }

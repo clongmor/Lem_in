@@ -56,3 +56,9 @@ read and write data must also be fairly fast.
 
 If there isn’t enough data to process normally you must display ERROR
 therefore, we can display other things as long as it says error too. (i think)
+
+memory leaks:
+
+create_node -> str_dup (malloc node and str_dup room)
+env (anthill) esp start and end names
+queue object to be freed
