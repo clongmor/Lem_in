@@ -38,6 +38,21 @@ void    push_link_end(t_room *room, t_node *new_link) {
     }
 }
 
+static int     has_link(t_node *head, char *link)
+{
+    t_node *curr = head;
+
+    while (curr)
+    {
+        if (ft_strequ(curr->room, link))
+        {
+            return (1);
+        }
+        curr = curr->next;
+    }
+    return (0);
+}
+
 void    add_link(t_env *env, char *src, char *dst) {
     t_room *src_room;
     t_room *dst_room;
@@ -50,7 +65,16 @@ void    add_link(t_env *env, char *src, char *dst) {
         exit(1);
     }
     else {
-        push_link_end(src_room, create_node(dst));
-        push_link_end(dst_room, create_node(src));
+        if ((has_link(src_room->links, dst) == 0) && (has_link(dst_room->links, src) == 0))
+        {
+            push_link_end(src_room, create_node(dst));
+            push_link_end(dst_room, create_node(src));
+        }
+        else
+        {
+            ft_putstr("ERROR\n");
+            //need to free here
+            exit(1);
+        }
     }
 }
