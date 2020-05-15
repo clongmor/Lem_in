@@ -18,7 +18,7 @@ LINKER = -L./libft -lft
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(LIBRARY)
-	$(CC) $(SRCS) -o $(NAME) $(LINKER)
+	$(CC) $(SRCS) -o $(NAME) $(LINKER) $(FLAGS)
 
 $(LIBRARY):
 	make re -C libft

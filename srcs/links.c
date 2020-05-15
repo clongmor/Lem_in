@@ -41,7 +41,6 @@ void    push_link_end(t_room *room, t_node *new_link) {
 void    add_link(t_env *env, char *src, char *dst) {
     t_room *src_room;
     t_room *dst_room;
-    t_node *tmp;
 
     src_room = find_room(env, src);
     dst_room = find_room(env, dst);

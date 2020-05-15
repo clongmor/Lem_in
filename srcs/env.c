@@ -98,11 +98,10 @@ void free_rooms(t_room *head) {
     t_room *next = NULL;
 
     while (curr) {
-        ft_putstr("freeing: ");
-        ft_putstr(curr->name);
-        ft_putendl("");
         next = curr->next;
-        // free_links(curr->links);
+        free_links(curr->links);
+        // free(curr->links);
+        // ft_putendl("")
         free(curr->name);
         curr->name = NULL;
         free(curr);
