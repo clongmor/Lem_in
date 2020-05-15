@@ -62,25 +62,6 @@ void    push_buffer(t_env *env) {
     }
 }
 
-void    print_env(t_env *env) {
-    t_room *tmp;
-
-    tmp = env->head;
-    printf("nb ants: %i\n", env->nb_ants);
-    while (tmp) {
-        printf("room: %s | links : ", tmp->name);
-        t_node *tmp_link = tmp->links;
-        while (tmp_link) {
-            printf("%s ", tmp_link->room);
-            tmp_link = tmp_link->next;
-        }
-        printf("\n");
-        // Print links
-        tmp = tmp->next;
-    }
-    printf("start: %s\nend: %s\n", env->start, env->end);
-}
-
 void free_links(t_node *head) {
     t_node *curr = head;
     t_node *next = NULL;
@@ -98,9 +79,6 @@ void free_rooms(t_room *head) {
     t_room *next = NULL;
 
     while (curr) {
-        ft_putstr("freeing: ");
-        ft_putstr(curr->name);
-        ft_putendl("");
         next = curr->next;
         free_links(curr->links);
         free(curr->name);

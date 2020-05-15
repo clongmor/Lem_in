@@ -56,5 +56,6 @@ t_queue *get_paths(t_env *env)
         }
         free_links(curr_path);
     }
+    free(queue);
     return paths;
 }

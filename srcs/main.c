@@ -12,6 +12,13 @@
 
 #include "../includes/lem.h"
 
+static void    free_env(t_env *env)
+{
+    free_rooms(env->head);
+    free(env->start);
+    free(env->end);
+    free(env->buff);
+}
 
 int		main()
 {
@@ -21,7 +28,6 @@ int		main()
     parse_ants(anthill);
     read_map_rooms(anthill);
     read_map_links(anthill);
-    t_room *head = anthill->head;
     t_queue *paths = get_paths(anthill);
     if (paths) {
         print_map(anthill);
@@ -32,7 +38,7 @@ int		main()
         ft_putendl("ERROR");
         //need to free here
     }
-    free_rooms(head);
-    //free here
+    free_env(anthill);
+    free(anthill);
 	return (0);
 }
