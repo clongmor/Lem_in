@@ -6,7 +6,8 @@ SRCS =	./srcs/env.c \
 		./srcs/helper.c \
 		./srcs/queue.c \
 		./srcs/pathing.c \
-		./srcs/flow.c
+		./srcs/flow.c \
+		./srcs/free.c
 
 EXECUTABLE = lemon
 LIBRARY = lib_ft
@@ -17,7 +18,7 @@ LINKER = -L./libft -lft
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(LIBRARY)
+$(EXECUTABLE): 
 	$(CC) $(SRCS) $(FLAGS) -o $(NAME) $(LINKER)
 
 $(LIBRARY):
