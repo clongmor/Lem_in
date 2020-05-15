@@ -153,7 +153,7 @@ void    read_map_rooms(t_env *env) {
             if (ft_strchr(env->buff, ' '))
             {
                 if (env->buff[0] == 'L') {
-                    ft_putendl("ERROR");
+                    ft_putendl("ERROR\n");
                     //need to free buffer here
                     exit(1);
                 }
