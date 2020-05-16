@@ -100,7 +100,5 @@ int		int_overflow(char *str);
 void    free_and_exit_rooms(char *name, char **room_arr, t_env *env);
 void    free_and_exit_links(char **rooms, t_env *env);
 void    free_env(t_env *env);
-void    free_env_rooms(t_env *env);
-
 
 #endif
