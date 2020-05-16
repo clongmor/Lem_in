@@ -1,6 +1,7 @@
 #include "../includes/lem.h"
 
-void    free_and_exit_rooms(char *name, char **room_arr, t_env *env) {
+void free_and_exit_rooms(char *name, char **room_arr, t_env *env)
+{
     if (name != NULL)
         free(name);
     if (room_arr)
@@ -13,15 +14,16 @@ void    free_and_exit_rooms(char *name, char **room_arr, t_env *env) {
     exit(1);
 }
 
-void    free_and_exit_links(char **rooms, t_env *env) {
+void free_and_exit_links(char **rooms, t_env *env)
+{
     free_array(rooms);
     free(rooms);
     free_env(env);
     ft_putstr("ERROR\n");
     exit(1);
-} 
+}
 
-void    free_map(t_map *head)
+void free_map(t_map *head)
 {
     t_map *curr = head;
     t_map *next = NULL;
@@ -35,7 +37,7 @@ void    free_map(t_map *head)
     }
 }
 
-void    free_env(t_env *env)
+void free_env(t_env *env)
 {
     if (env->start)
         free(env->start);

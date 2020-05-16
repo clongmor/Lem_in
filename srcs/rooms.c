@@ -33,7 +33,7 @@ t_room *create_room(char *name, int x, int y, int index)
 int add_room(t_env *env, t_room *room)
 {
     t_room *tmp;
-    int     problem;
+    int problem;
 
     problem = 0;
     tmp = env->head;
@@ -53,7 +53,7 @@ int add_room(t_env *env, t_room *room)
         }
         tmp->next = room;
     }
-    return(problem);
+    return (problem);
 }
 
 t_room *find_room(t_env *env, char *dst)

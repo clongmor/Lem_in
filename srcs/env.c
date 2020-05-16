@@ -12,11 +12,13 @@
 
 #include "../includes/lem.h"
 
-t_env   *create_env(void) {
+t_env *create_env(void)
+{
     t_env *new_env;
 
     new_env = (t_env *)malloc(sizeof(t_env));
-    if (!new_env) {
+    if (!new_env)
+    {
         return NULL;
     }
     new_env->head = NULL;
@@ -27,10 +29,12 @@ t_env   *create_env(void) {
     return new_env;
 }
 
-void    print_map(t_env *env) {
+void print_map(t_env *env)
+{
     t_map *prev;
 
-    while (env->map) {
+    while (env->map)
+    {
         prev = env->map;
         env->map = env->map->next;
         ft_putendl(prev->line);
@@ -39,7 +43,8 @@ void    print_map(t_env *env) {
     }
 }
 
-void    push_buffer(t_env *env) {
+void push_buffer(t_env *env)
+{
     t_map *new_map;
     t_map *cursor;
 
@@ -50,7 +55,8 @@ void    push_buffer(t_env *env) {
         new_map->next = NULL;
         if (env->map == NULL)
             env->map = new_map;
-        else {
+        else
+        {
             cursor = env->map;
 
             while (cursor->next)
@@ -62,11 +68,13 @@ void    push_buffer(t_env *env) {
     }
 }
 
-void free_links(t_node *head) {
+void free_links(t_node *head)
+{
     t_node *curr = head;
     t_node *next = NULL;
 
-    while (curr) {
+    while (curr)
+    {
         next = curr->next;
         free(curr->room);
         free(curr);
@@ -74,11 +82,13 @@ void free_links(t_node *head) {
     }
 }
 
-void free_rooms(t_room *head) {
+void free_rooms(t_room *head)
+{
     t_room *curr = head;
     t_room *next = NULL;
 
-    while (curr) {
+    while (curr)
+    {
         next = curr->next;
         if (curr->links)
             free_links(curr->links);
