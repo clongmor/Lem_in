@@ -27,11 +27,7 @@ static  void    free_queue(t_queue *head)
 
 static void    free_all(t_env *env, t_queue *queue)
 {
-    free_rooms(env->head);
-    free(env->start);
-    free(env->end);
-    free(env->buff);
-    free(env);
+    free_env(env);
     free_queue(queue);
 }
 
@@ -52,9 +48,8 @@ int		main()
     }
     else {
         free_all(anthill, paths);
-        ft_putendl("ERROR\n");
+        ft_putendl("ERROR");
         exit(1);
-        //need to free here
     }
     free_all(anthill, paths);
 	return (0);

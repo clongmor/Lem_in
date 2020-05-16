@@ -16,9 +16,7 @@ void    parse_ants(t_env *env) {
         }
         else
             env->nb_ants = ants;
-        // push_buffer(env);
-        ft_putendl(env->buff);
-        free(env->buff);
+        push_buffer(env);
     }
     else
     {
@@ -60,26 +58,39 @@ void    parse_room(char *room, int type, t_env *env) {
                     if (env->start == NULL)
                         env->start = ft_strdup(name);
                     else
+                    {
+
                         free_and_exit_rooms(name, room_arr, env, room);  
+                    }
                 }
                 else if (type == 2) {
                     if (env->end == NULL)
                         env->end = ft_strdup(name);
                     else
+                    {
                         free_and_exit_rooms(name, room_arr, env, room); 
+
+                    }
                 }
                 free(name);
             }
             else
+            {
                 free_and_exit_rooms(name, room_arr, env, room); 
+            }
         }
         else
+        {
             free_and_exit_rooms(name, room_arr, env, room); 
+
+        }
         free_array(room_arr);
         free(room_arr);
     } 
     else
+    {
         free_and_exit_rooms(name, room_arr, env, room);
+    }
 }
 
 void    parse_link(char *room, t_env *env) {
@@ -105,7 +116,6 @@ void    read_map_rooms(t_env *env) {
     int room_type;
     int start;
     int end;
-
     start = 0;
     end = 0;
     while (get_next_line(0, &env->buff) > 0) {
@@ -121,8 +131,8 @@ void    read_map_rooms(t_env *env) {
             if (ft_strchr(env->buff, ' '))
             {
                 if (env->buff[0] == 'L') {
-                    ft_putendl("ERROR\n");
-                    //need to free buffer here
+                    ft_putendl("ERROR");
+                    free_env(env);
                     exit(1);
                 }
                 parse_room(env->buff, room_type, env);
@@ -131,21 +141,19 @@ void    read_map_rooms(t_env *env) {
             else
             {
                 if (start != 1 || end != 1) {
-                    ft_putstr("ERROR\n");
-                    //need to free here
+                    ft_putendl("ERROR");
+                    free_env(env);
                     exit(1);
                 }
                 if (!env->start || !env->end) {
                     ft_putstr("ERROR\n");
-                    //need to free here
+                    free_env(env);
                     exit(1);
                 }
                 return ;
             }
         }
-        ft_putendl(env->buff);
-        free(env->buff);
-        // push_buffer(env); 
+        push_buffer(env); 
     }
 }
 
@@ -158,11 +166,10 @@ void    read_map_links(t_env *env) {
         else if (env->buff[0] != '#')
         {
             ft_putstr("ERROR\n");
+            free_env(env);
             exit(1);
         }
-        ft_putendl(env->buff);
-        free(env->buff);
-        // push_buffer(env);
+        push_buffer(env);
         if (get_next_line(0, &env->buff) <= 0)
             env->buff = NULL;
     }

@@ -59,9 +59,11 @@ void    add_link(t_env *env, char *src, char *dst) {
 
     src_room = find_room(env, src);
     dst_room = find_room(env, dst);
-    if ((src_room == NULL) || (dst_room == NULL)) {
+    if ((src_room == NULL) || (dst_room == NULL) || (ft_strequ(src, dst) == 1)) {
         ft_putstr("ERROR\n");
-        //need to free here
+        ft_strdel(&src);
+        ft_strdel(&dst);
+        free_env(env);
         exit(1);
     }
     else {
@@ -73,7 +75,9 @@ void    add_link(t_env *env, char *src, char *dst) {
         else
         {
             ft_putstr("ERROR\n");
-            //need to free here
+            ft_strdel(&src);
+            ft_strdel(&dst);
+            free_env(env);
             exit(1);
         }
     }
