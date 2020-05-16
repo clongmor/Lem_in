@@ -1,22 +1,5 @@
 lem_in
 
-quickest way to get some ants across a maze of tunnels (least number of lines).
-lack of data to process -> display error
-incorrect data/empty lines stop the readin of data
-rooms never start with "L" or "#", but can start any other way.
-
-Display: - done
-
-number_of_ants
-the_rooms (coordinates)
-the_links
-
-Lx-y Lz-w Lr-o ...
-
-x, z, r represents the ants’ numbers (going from 1 to number_of_ants) and y,
-w, o represents the rooms’ names.
-any comments (begin with #) are ignored, or used to set start and end lines
-
 Of course, your algorithm must render within a reasonable time, even in a case with
 4000 rooms. 2 or 3 seconds is great, 9 seconds is mediocre, 15 seconds is too much.
 as well as read and write must be fast.
@@ -27,38 +10,12 @@ strerror(takes in errno and returns error message assosc),
 perror (takes in string to print before errno message and prints both), 
 exit
 
-need to check different rooms at same coordinates potentially??
-or same room name for different coordinates?? what to do
-
 < int max/min don't error out for coords, but do error out for ants numbers.
 
-to do:
-If you are clever, you will use your library for your lem-in. Also submit your folder
-libft including its own Makefile at the root of your repository. Your Makefile
-will have to compile the library, and then compile your project. - done
-
 memory leaks
-author file - done
-check illegal functions - done.
-
-You must to display your results on the standard output in the following format:
-number_of_ants
-the_rooms
-the_links
-
-Lx-y Lz-w Lr-o ...
-need to change this so we display the file contents and then the ant paths only, so can remove print env now.
-
-Of course, your algorithm must render within a reasonable time, even in a case with
-4000 rooms. 2 or 3 seconds is great, 9 seconds is mediocre, 15 seconds is too much.
-These are maps with sometimes more than 10,000 lines, the way you
-read and write data must also be fairly fast.
 
 If there isn’t enough data to process normally you must display ERROR
 therefore, we can display other things as long as it says error too. (i think)
 
 memory leaks:
-
-create_node -> str_dup (malloc node and str_dup room)
-env (anthill) esp start and end names
-queue object to be freed
+error maps to all be checked. need to figure out the leak with get next line as soon as an incorrect amount of ants is passed.

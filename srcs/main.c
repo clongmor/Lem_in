@@ -54,7 +54,6 @@ int		main()
         free_all(anthill, paths);
         ft_putendl("ERROR\n");
         exit(1);
-        //need to free here
     }
     free_all(anthill, paths);
 	return (0);

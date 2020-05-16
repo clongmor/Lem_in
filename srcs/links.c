@@ -46,7 +46,8 @@ void    add_link(t_env *env, char *src, char *dst) {
     dst_room = find_room(env, dst);
     if ((src_room == NULL) || (dst_room == NULL)) {
         ft_putstr("ERROR\n");
-        //need to free here
+        free_env_rooms(env);
+        //actually need to ext out to return a problem int and free from parent function parse_link, or else the array does not get freed
         exit(1);
     }
     else {
