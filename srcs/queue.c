@@ -43,7 +43,6 @@ t_node *appended_path(t_node **path, char *to_append)
     t_node *prev = NULL;
     t_node *cursor = *path;
 
-
     if (!cursor)
         return NULL;
 
@@ -73,11 +72,13 @@ char *last_in_path(t_node *path)
     if (curr == NULL)
         return NULL;
 
-    if (curr->next == NULL) {
+    if (curr->next == NULL)
+    {
         return curr->room;
     }
 
-    while (curr->next != NULL) {
+    while (curr->next != NULL)
+    {
         curr = curr->next;
     }
     return curr->room;

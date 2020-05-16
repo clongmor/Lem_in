@@ -46,7 +46,8 @@ t_queue *get_paths(t_env *env)
             {
                 t_node *new = appended_path(&curr_path, neighbours->room);
                 enqueue(&queue, new);
-                if (ft_strequ(neighbours->room, env->end)  && room_count(new, env->end) == 1) {
+                if (ft_strequ(neighbours->room, env->end) && room_count(new, env->end) == 1)
+                {
                     enqueue(&paths, new);
                 }
                 free_links(new);

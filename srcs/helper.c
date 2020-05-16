@@ -1,13 +1,16 @@
 #include "../includes/lem.h"
 
-int only_digits(char *str) {
+int only_digits(char *str)
+{
     int digit_count;
 
     digit_count = 0;
     if (*str == '-' || *str == '+')
         str++;
-    while (*str) {
-        if (ft_isdigit(*str) == 0) {
+    while (*str)
+    {
+        if (ft_isdigit(*str) == 0)
+        {
             return (0);
         }
         digit_count++;
@@ -16,28 +19,22 @@ int only_digits(char *str) {
     return ((digit_count > 0));
 }
 
-int arr_size(char **arr) {
+int arr_size(char **arr)
+{
     int size;
 
     size = 0;
-    while (arr[size]) {
+    while (arr[size])
+    {
         size++;
     }
     return size;
 }
 
-void print_links(t_node *head) {
-    while (head != NULL) {
-        ft_putstr("L: [");
-        ft_putstr(head->room);
-        ft_putstr("] ");
-        head = head->next;
-    }
-    ft_putstr("\n");
-}
-
-int list_contains(t_node *head, char *dst) {
-    while (head) {
+int list_contains(t_node *head, char *dst)
+{
+    while (head)
+    {
         if (head->room == dst)
             return (1);
         head = head->next;
@@ -45,7 +42,8 @@ int list_contains(t_node *head, char *dst) {
     return (0);
 }
 
-void    free_array(char **arr) {
+void free_array(char **arr)
+{
     char *prev;
 
     while (*arr)
@@ -57,21 +55,21 @@ void    free_array(char **arr) {
     arr = NULL;
 }
 
-int		int_overflow(char *str)
+int int_overflow(char *str)
 {
-	int ret;
+    int ret;
 
-	ret = 0;
-	if (ft_strequ(str, "-2147483648"))
-		return (0);
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
-	{
-		ret = ret * 10 + (int)(*str - '0');
-		if (ret < 0)
-			return (1);
-		str++;
-	}
-	return (0);
+    ret = 0;
+    if (ft_strequ(str, "-2147483648"))
+        return (0);
+    if (*str == '-' || *str == '+')
+        str++;
+    while (*str)
+    {
+        ret = ret * 10 + (int)(*str - '0');
+        if (ret < 0)
+            return (1);
+        str++;
+    }
+    return (0);
 }
