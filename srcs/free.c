@@ -1,23 +1,22 @@
 #include "../includes/lem.h"
 
-void    free_env_rooms(t_env *env)
+void    free_map(t_map *head)
 {
-    if (env->head)
-        free_rooms(env->head);
-    if (env->start)
-        free(env->start);
-    if (env->end)
-        free(env->end);
-    free(env);
+    t_map *curr = head;
+    t_map *next = NULL;
+
+    while (curr)
+    {
+        next = curr->next;
+        free(curr->line);
+        free(curr);
+        curr = next;
+    }
 }
 
 void    free_env_rooms_exit(t_env *env)
 {
-    free_rooms(env->head);
-    free(env->start);
-    free(env->end);
-    free(env->buff);
-    free(env);
+    free_env(env);
     ft_putendl("ERROR");
     exit(1);
 }
@@ -37,20 +36,6 @@ void    free_and_exit_links(char **rooms, t_env *env) {
     free(rooms);
     free_env_rooms_exit(env);
 } 
-
-void    free_map(t_map *head)
-{
-    t_map *curr = head;
-    t_map *next = NULL;
-
-    while (curr)
-    {
-        next = curr->next;
-        free(curr->line);
-        free(curr);
-        curr = next;
-    }
-}
 
 void    free_env(t_env *env)
 {

@@ -1,299 +1,66 @@
-==10268== Memcheck, a memory error detector
-==10268== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==10268== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==10268== Command: ./lem-in
-==10268== Parent PID: 3064
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B267: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108EC0: parse_ants (parser.c:7)
-==10268==    by 0x108E02: main (main.c:44)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108EC0: parse_ants (parser.c:7)
-==10268==    by 0x108E02: main (main.c:44)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A5FF: ft_isdigit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A741: ft_atoi (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108EEA: parse_ants (parser.c:10)
-==10268==    by 0x108E02: main (main.c:44)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108EC0: parse_ants (parser.c:7)
-==10268==    by 0x108E02: main (main.c:44)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x109587: only_digits (helper.c:9)
-==10268==    by 0x108F03: parse_ants (parser.c:11)
-==10268==    by 0x108E02: main (main.c:44)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108EC0: parse_ants (parser.c:7)
-==10268==    by 0x108E02: main (main.c:44)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A3EB: ft_putstr (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A4C7: ft_putendl (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108F42: parse_ants (parser.c:20)
-==10268==    by 0x108E02: main (main.c:44)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108EC0: parse_ants (parser.c:7)
-==10268==    by 0x108E02: main (main.c:44)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B267: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B018: ft_strlen (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A7BF: ft_strequ (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109330: read_map_rooms (parser.c:118)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B018: ft_strlen (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A7BF: ft_strequ (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10935E: read_map_rooms (parser.c:122)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B018: ft_strlen (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A4EF: ft_strchr (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10939D: read_map_rooms (parser.c:127)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Invalid read of size 1
-==10268==    at 0x10A872: ft_wordsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AA98: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Address 0x522d22f is 1 bytes before a block of size 6 alloc'd
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A89E: ft_wordsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AA98: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Invalid read of size 1
-==10268==    at 0x10A967: ft_split (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AAEF: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Address 0x522d22f is 1 bytes before a block of size 6 alloc'd
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B018: ft_strlen (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10B105: ft_strncpy (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A9F7: ft_split (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AAEF: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A8EA: ft_wordlenchr (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A995: ft_split (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AAEF: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A905: ft_wordlenchr (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A995: ft_split (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AAEF: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10AA3C: ft_split (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AAEF: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x108FA4: parse_room (parser.c:41)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10911B: parse_room (parser.c:65)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a stack allocation
-==10268==    at 0x1092FB: read_map_rooms (parser.c:110)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x109160: parse_room (parser.c:71)
-==10268==    by 0x1093D6: read_map_rooms (parser.c:131)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a stack allocation
-==10268==    at 0x1092FB: read_map_rooms (parser.c:110)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A3EB: ft_putstr (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A4C7: ft_putendl (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10942F: read_map_rooms (parser.c:143)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10B09A: ft_memcmp (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10A7FC: ft_strequ (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10935E: read_map_rooms (parser.c:122)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A820: ft_strequ (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10935E: read_map_rooms (parser.c:122)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== Conditional jump or move depends on uninitialised value(s)
-==10268==    at 0x10A529: ft_strchr (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10939D: read_map_rooms (parser.c:127)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268==  Uninitialised value was created by a heap allocation
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10B214: ft_strsub (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AC7F: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== 
-==10268== HEAP SUMMARY:
-==10268==     in use at exit: 8 bytes in 1 blocks
-==10268==   total heap usage: 46 allocs, 45 frees, 637 bytes allocated
-==10268== 
-==10268== 8 bytes in 1 blocks are still reachable in loss record 1 of 1
-==10268==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==10268==    by 0x10A449: ft_strdup (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10ACB5: store_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x10AFDA: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
-==10268==    by 0x109454: read_map_rooms (parser.c:117)
-==10268==    by 0x108E0E: main (main.c:45)
-==10268== 
-==10268== LEAK SUMMARY:
-==10268==    definitely lost: 0 bytes in 0 blocks
-==10268==    indirectly lost: 0 bytes in 0 blocks
-==10268==      possibly lost: 0 bytes in 0 blocks
-==10268==    still reachable: 8 bytes in 1 blocks
-==10268==         suppressed: 0 bytes in 0 blocks
-==10268== 
-==10268== For counts of detected and suppressed errors, rerun with: -v
-==10268== ERROR SUMMARY: 73 errors from 21 contexts (suppressed: 0 from 0)
+==14438== Memcheck, a memory error detector
+==14438== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14438== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==14438== Command: ./lem-in
+==14438== Parent PID: 3064
+==14438== 
+==14438== Invalid read of size 1
+==14438==    at 0x10A90C: ft_wordsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AB32: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x109042: parse_room (parser.c:39)
+==14438==    by 0x109474: read_map_rooms (parser.c:128)
+==14438==    by 0x108EC4: main (main.c:41)
+==14438==  Address 0x522d62f is 1 bytes before a block of size 7 alloc'd
+==14438==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14438==    by 0x10A4E3: ft_strdup (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AD33: retln (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AE7A: readln (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AFA3: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x1094DE: read_map_rooms (parser.c:114)
+==14438==    by 0x108EC4: main (main.c:41)
+==14438== 
+==14438== Invalid read of size 1
+==14438==    at 0x10AA01: ft_split (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AB89: ft_strsplit (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x109042: parse_room (parser.c:39)
+==14438==    by 0x109474: read_map_rooms (parser.c:128)
+==14438==    by 0x108EC4: main (main.c:41)
+==14438==  Address 0x522d62f is 1 bytes before a block of size 7 alloc'd
+==14438==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14438==    by 0x10A4E3: ft_strdup (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AD33: retln (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AE7A: readln (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AFA3: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x1094DE: read_map_rooms (parser.c:114)
+==14438==    by 0x108EC4: main (main.c:41)
+==14438== 
+==14438== 
+==14438== HEAP SUMMARY:
+==14438==     in use at exit: 28 bytes in 2 blocks
+==14438==   total heap usage: 135 allocs, 133 frees, 1,927 bytes allocated
+==14438== 
+==14438== 4 bytes in 1 blocks are still reachable in loss record 1 of 2
+==14438==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14438==    by 0x10A4E3: ft_strdup (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AD67: retln (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AE7A: readln (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AFA3: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x1094DE: read_map_rooms (parser.c:114)
+==14438==    by 0x108EC4: main (main.c:41)
+==14438== 
+==14438== 24 bytes in 1 blocks are still reachable in loss record 2 of 2
+==14438==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14438==    by 0x10AC70: mknode (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x10AF74: get_next_line (in /media/chloe/Acer/Users/chloe/Documents/WTC/lem_in/lem-in)
+==14438==    by 0x108F76: parse_ants (parser.c:7)
+==14438==    by 0x108EB8: main (main.c:40)
+==14438== 
+==14438== LEAK SUMMARY:
+==14438==    definitely lost: 0 bytes in 0 blocks
+==14438==    indirectly lost: 0 bytes in 0 blocks
+==14438==      possibly lost: 0 bytes in 0 blocks
+==14438==    still reachable: 28 bytes in 2 blocks
+==14438==         suppressed: 0 bytes in 0 blocks
+==14438== 
+==14438== For counts of detected and suppressed errors, rerun with: -v
+==14438== ERROR SUMMARY: 18 errors from 2 contexts (suppressed: 0 from 0)
