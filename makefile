@@ -12,7 +12,7 @@ SRCS =	./srcs/env.c \
 EXECUTABLE = lemon
 LIBRARY = lib_ft
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -ggdb3
+FLAGS = -Wall -Werror -Wextra
 NAME = lem-in
 LINKER = -L./libft -lft
 

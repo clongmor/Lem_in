@@ -31,7 +31,6 @@ static void    free_all(t_env *env, t_queue *queue)
     free_queue(queue);
 }
 
-
 int		main()
 {
     t_env *anthill;

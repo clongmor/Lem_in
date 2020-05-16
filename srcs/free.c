@@ -50,4 +50,5 @@ void    free_env(t_env *env)
     if (env->head)
         free_rooms(env->head);
     free(env);
+    env = NULL;
 }

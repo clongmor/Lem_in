@@ -49,6 +49,7 @@ int add_room(t_env *env, t_room *room)
                 problem = 1;
             else if (tmp->x == room->x && tmp->y == room->y)
                 problem = 1;
+                //change to 0 for 4000 rooms to work
             tmp = tmp->next;
         }
         tmp->next = room;

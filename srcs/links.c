@@ -72,6 +72,7 @@ void    add_link(t_env *env, char *src, char *dst) {
             push_link_end(src_room, create_node(dst));
             push_link_end(dst_room, create_node(src));
         }
+        //comment out the else for 4000 rooms to work
         else
         {
             ft_putstr("ERROR\n");

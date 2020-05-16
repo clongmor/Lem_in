@@ -51,9 +51,7 @@ void    parse_room(char *room, int type, t_env *env) {
                 if (find_room(env, name) == NULL) {
                     ret = add_room(env, new_room);
                     if (ret == 1)
-                    {
                         free_and_exit_rooms(name, room_arr, env);
-                    }
                 }
                 else {
                     free(new_room->name);
