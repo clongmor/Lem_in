@@ -126,26 +126,17 @@ void    read_map_rooms(t_env *env) {
         else if (env->buff[0] != '#') {
             if (ft_strchr(env->buff, ' '))
             {
-                if (env->buff[0] == 'L') {
-                    ft_putendl("ERROR\n");
-                    free_env_rooms(env);
-                    exit(1);
-                }
+                if (env->buff[0] == 'L')
+                    free_env_rooms_exit(env);
                 parse_room(env->buff, room_type, env);
                 room_type = 0;
             } 
             else
             {
-                if (start != 1 || end != 1) {
-                    ft_putstr("ERROR\n");
-                    free_env_rooms(env);
-                    exit(1);
-                }
-                if (!env->start || !env->end) {
-                    ft_putstr("ERROR\n");
-                    free_env_rooms(env);
-                    exit(1);
-                }
+                if (start != 1 || end != 1)
+                    free_env_rooms_exit(env);
+                if (!env->start || !env->end)
+                    free_env_rooms_exit(env);
                 return ;
             }
         }
@@ -162,11 +153,7 @@ void    read_map_links(t_env *env) {
             parse_link(env->buff, env);
         }
         else if (env->buff[0] != '#')
-        {
-            ft_putstr("ERROR\n");
-            free_env_rooms(env);
-            exit(1);
-        }
+            free_env_rooms_exit(env);
         ft_putendl(env->buff);
         free(env->buff);
         // push_buffer(env);
