@@ -16,9 +16,7 @@ void    parse_ants(t_env *env) {
         }
         else
             env->nb_ants = ants;
-        // push_buffer(env);
-        ft_putendl(env->buff);
-        free(env->buff);
+        push_buffer(env);
     }
     else
     {
@@ -111,7 +109,6 @@ void    read_map_rooms(t_env *env) {
     int room_type;
     int start;
     int end;
-
     start = 0;
     end = 0;
     while (get_next_line(0, &env->buff) > 0) {
@@ -140,9 +137,7 @@ void    read_map_rooms(t_env *env) {
                 return ;
             }
         }
-        ft_putendl(env->buff);
-        free(env->buff);
-        // push_buffer(env); 
+        push_buffer(env); 
     }
 }
 
@@ -154,9 +149,7 @@ void    read_map_links(t_env *env) {
         }
         else if (env->buff[0] != '#')
             free_env_rooms_exit(env);
-        ft_putendl(env->buff);
-        free(env->buff);
-        // push_buffer(env);
+        push_buffer(env);
         if (get_next_line(0, &env->buff) <= 0)
             env->buff = NULL;
     }

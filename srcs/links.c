@@ -38,20 +38,47 @@ void    push_link_end(t_room *room, t_node *new_link) {
     }
 }
 
+static int     has_link(t_node *head, char *link)
+{
+    t_node *curr = head;
+
+    while (curr)
+    {
+        if (ft_strequ(curr->room, link))
+        {
+            return (1);
+        }
+        curr = curr->next;
+    }
+    return (0);
+}
+
 void    add_link(t_env *env, char *src, char *dst) {
     t_room *src_room;
     t_room *dst_room;
 
     src_room = find_room(env, src);
     dst_room = find_room(env, dst);
-    if ((src_room == NULL) || (dst_room == NULL)) {
+    if ((src_room == NULL) || (dst_room == NULL) || (ft_strequ(src, dst) == 1)) {
         ft_putstr("ERROR\n");
-        free_env_rooms(env);
-        //actually need to ext out to return a problem int and free from parent function parse_link, or else the array does not get freed
+        ft_strdel(&src);
+        ft_strdel(&dst);
+        free_env(env);
         exit(1);
     }
     else {
-        push_link_end(src_room, create_node(dst));
-        push_link_end(dst_room, create_node(src));
+        if ((has_link(src_room->links, dst) == 0) && (has_link(dst_room->links, src) == 0))
+        {
+            push_link_end(src_room, create_node(dst));
+            push_link_end(dst_room, create_node(src));
+        }
+        else
+        {
+            ft_putstr("ERROR\n");
+            ft_strdel(&src);
+            ft_strdel(&dst);
+            free_env(env);
+            exit(1);
+        }
     }
 }
