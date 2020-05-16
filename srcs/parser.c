@@ -33,6 +33,7 @@ void    parse_room(char *room, int type, t_env *env) {
     int     x;
     int     y;
     char    *name;
+    int     ret;
 
     name = NULL;
     room_arr = ft_strsplit(room, ' ');
@@ -47,50 +48,42 @@ void    parse_room(char *room, int type, t_env *env) {
                 y = ft_atoi(room_arr[2]);
                 new_room = create_room(name, x, y, env->size);
                 env->size++;
-                if (find_room(env, name) == NULL)
-                    add_room(env, new_room);
+                if (find_room(env, name) == NULL) {
+                    ret = add_room(env, new_room);
+                    if (ret == 1)
+                    {
+                        free_and_exit_rooms(name, room_arr, env);
+                    }
+                }
                 else {
-                    free_and_exit_rooms(name, room_arr, env, room);
                     free(new_room->name);
                     free(new_room);
+                    free_and_exit_rooms(name, room_arr, env);
                 } 
                 if (type == 1) {
                     if (env->start == NULL)
                         env->start = ft_strdup(name);
                     else
-                    {
-
-                        free_and_exit_rooms(name, room_arr, env, room);  
-                    }
+                        free_and_exit_rooms(name, room_arr, env);  
                 }
                 else if (type == 2) {
                     if (env->end == NULL)
                         env->end = ft_strdup(name);
                     else
-                    {
-                        free_and_exit_rooms(name, room_arr, env, room); 
-
-                    }
+                        free_and_exit_rooms(name, room_arr, env); 
                 }
                 free(name);
             }
             else
-            {
-                free_and_exit_rooms(name, room_arr, env, room); 
-            }
+                free_and_exit_rooms(name, room_arr, env); 
         }
         else
-        {
-            free_and_exit_rooms(name, room_arr, env, room); 
-
-        }
+            free_and_exit_rooms(name, room_arr, env); 
         free_array(room_arr);
         free(room_arr);
     } 
     else
-    {
-        free_and_exit_rooms(name, room_arr, env, room);
-    }
+        free_and_exit_rooms(name, room_arr, env);
 }
 
 void    parse_link(char *room, t_env *env) {
@@ -103,13 +96,13 @@ void    parse_link(char *room, t_env *env) {
         if (find_room(env, rooms[0]) && find_room(env, rooms[1]))
             add_link(env, rooms[0], rooms[1]);
         else
-            free_and_exit_links(rooms);
+            free_and_exit_links(rooms, env);
         free_array(rooms);
         free(rooms);
         rooms = NULL;
     }
     else
-        free_and_exit_links(rooms);
+        free_and_exit_links(rooms, env);
 }
 
 void    read_map_rooms(t_env *env) {

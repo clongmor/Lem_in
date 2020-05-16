@@ -18,7 +18,7 @@ LINKER = -L./libft -lft
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): 
+$(EXECUTABLE): $(LIBRARY)
 	$(CC) $(SRCS) $(FLAGS) -o $(NAME) $(LINKER)
 
 $(LIBRARY):

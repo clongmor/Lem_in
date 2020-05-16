@@ -31,7 +31,6 @@ void print_links(t_node *head) {
         ft_putstr("L: [");
         ft_putstr(head->room);
         ft_putstr("] ");
-        // printf("L: [%s] ", head->room);
         head = head->next;
     }
     ft_putstr("\n");
